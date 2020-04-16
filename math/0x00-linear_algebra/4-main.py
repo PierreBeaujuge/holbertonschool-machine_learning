@@ -14,14 +14,17 @@ arr2.append(9)
 print(arr3)
 print(arr1)
 print(arr2)
-arr5 = [[1, 2], [3, 4]]
-arr6 = [[6, 7], [8, 9]]
+arr5 = [[1, 2], [4, 5]]
+arr6 = [[7, 8], [10, 11]]
 arr7 = add_arrays(arr5, arr6)
 print(add_arrays(arr5, arr6))
 print(arr5)
 print(arr6)
-arr5[1].append(5)
-arr6[1].append(10)
+arr5[0].append(3)
+arr5[1].append(6)
+arr6[0].append(9)
+arr6[1].append(12)
 print(arr7)
 print(arr5)
 print(arr6)
+print(add_arrays(arr5, arr6))
