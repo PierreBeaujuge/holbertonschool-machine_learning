@@ -9,8 +9,8 @@ def cat_matrices2D(mat1, mat2, axis=0):
     mat2 = [x[:] for x in mat2]
     if len(matrix_shape(mat1)) != len(matrix_shape(mat2)):
         return None
-    if axis not in range(len(matrix_shape(mat1))):
-        return None
+    # if axis not in range(len(matrix_shape(mat1))):
+    #     return None
     if axis == 0:
         return cat_arrays(mat1, mat2)
     elif axis == 1:
