@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""define new function"""
 
 
 def mat_mul(mat1, mat2):

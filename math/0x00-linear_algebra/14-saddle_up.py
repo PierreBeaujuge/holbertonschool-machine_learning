@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""define new function"""
 import numpy as np
 
 

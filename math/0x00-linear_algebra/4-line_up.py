@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""define new function"""
 
 
 def add_arrays(arr1, arr2):

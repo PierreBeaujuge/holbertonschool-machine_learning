@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""define new function"""
 
 def matrix_shape(matrix):
     """function that returns the shape of a matrix"""
