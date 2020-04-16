@@ -7,14 +7,17 @@ def cat_matrices2D(mat1, mat2, axis=0):
     # making deep copies
     mat1 = [x[:] for x in mat1]
     mat2 = [x[:] for x in mat2]
-    if len(matrix_shape(mat1)) != len(matrix_shape(mat2)):
-        return None
+    # if len(matrix_shape(mat1)) != len(matrix_shape(mat2)):
+    #     return None
+    # edge case not tested here:
     # if axis not in range(len(matrix_shape(mat1))):
     #     return None
-    if axis == 0:
+    if axis == 0 and len(mat1[0]) == len(mat2[0]):
         return cat_arrays(mat1, mat2)
-    elif axis == 1:
+    elif axis == 1 and len(mat1) == len(mat2):
         return list(map(lambda arr1, arr2: cat_arrays(arr1, arr2), mat1, mat2))
+    else:
+        return None
 
 
 def cat_arrays(arr1, arr2):
