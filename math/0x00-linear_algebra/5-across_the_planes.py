@@ -7,7 +7,8 @@ def add_matrices2D(mat1, mat2):
     # making deep copies
     mat1 = [x[:] for x in mat1]
     mat2 = [x[:] for x in mat2]
-    if matrix_shape(mat1) == matrix_shape(mat2):
+    # if matrix_shape(mat1) == matrix_shape(mat2):
+    if len(mat1) == len(mat2):
         return list(map(lambda arr1, arr2: add_arrays(arr1, arr2), mat1, mat2))
     return None
 
