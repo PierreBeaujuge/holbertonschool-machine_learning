@@ -4,7 +4,8 @@
 
 def add_arrays(arr1, arr2):
     """function that adds two arrays element-wise"""
-    if matrix_shape(arr1) == matrix_shape(arr2):
+    # if matrix_shape(arr1) == matrix_shape(arr2):
+    if len(arr1) == len(arr2):
         # return list(map(lambda x, y: x + y, arr1, arr2))
         return [arr1[i] + arr2[i] for i in range(matrix_shape(arr1)[0])]
     return None
