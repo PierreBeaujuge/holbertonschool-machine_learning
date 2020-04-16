@@ -10,4 +10,3 @@ def add_arrays(arr1, arr2):
         # although both options return a new list:
         # return [arr1[i] + arr2[i] for i in range(len(arr1))]
     return None
-
