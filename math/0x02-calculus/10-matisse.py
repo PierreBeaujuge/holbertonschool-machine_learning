@@ -2,7 +2,6 @@
 """
 function poly_derivative
 """
-import numpy as np
 
 
 def poly_derivative(poly):
