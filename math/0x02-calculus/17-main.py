@@ -11,6 +11,12 @@ print(poly_integral(poly))
 poly = []
 print(poly_integral(poly))
 
+poly = [0]
+print(poly_integral(poly))
+
+poly = [1]
+print(poly_integral(poly))
+
 poly = [5, 3, 0.5, 1]
 print(poly_integral(poly))
 
