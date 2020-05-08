@@ -22,11 +22,13 @@ class NeuralNetwork:
             raise ValueError('nodes must be a positive integer')
         self.nx = nx
         self.nodes = nodes
-        self.__W1 = np.random.normal(loc=0.0, scale=1.0, size=(nodes, nx))
+        # self.__W1 = np.random.normal(loc=0.0, scale=1.0, size=(nodes, nx))
+        self.__W1 = np.random.randn(nodes, nx)
         self.__b1 = np.zeros(nodes).reshape(nodes, 1)
         self.__A1 = 0
-        self.__W2 = np.random.normal(
-            loc=0.0, scale=1.0, size=nodes).reshape(1, nodes)
+        # self.__W2 = np.random.normal(
+        #     loc=0.0, scale=1.0, size=nodes).reshape(1, nodes)
+        self.__W2 = np.random.randn(nodes).reshape(1, nodes)
         self.__b2 = 0
         self.__A2 = 0
 
