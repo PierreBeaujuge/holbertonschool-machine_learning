@@ -94,7 +94,7 @@ class NeuralNetwork:
         db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
         # Z1 = np.matmul(self.W1, X) + self.b1
         # dZ1 = np.multiply(np.matmul(self.W2.T, dZ2), self.sigmoid_prime(Z1))
-        dZ1 = np.matmul(self.W2.T, dZ2) * (A1 * (1 - A1))
+        dZ1 = np.multiply(np.matmul(self.W2.T, dZ2), (A1 * (1 - A1)))
         dW1 = (1 / m) * np.matmul(dZ1, X.T)
         db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
         self.__W2 -= alpha * dW2
