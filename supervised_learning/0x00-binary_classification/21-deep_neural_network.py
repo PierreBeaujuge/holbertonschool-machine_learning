@@ -81,12 +81,15 @@ class DeepNeuralNetwork:
         for i in range(self.L, 0, -1):
             m = Y.shape[1]
             if i != self.L:
-                Zi = np.matmul(
-                    self.weights['W' + str(i)], self.cache['A' + str(i - 1)]
-                ) + self.weights['b' + str(i)]
+                # Zi = np.matmul(
+                #     self.weights['W' + str(i)], self.cache['A' + str(i - 1)]
+                # ) + self.weights['b' + str(i)]
+                # dZi = np.multiply(np.matmul(
+                #     self.weights['W' + str(i + 1)].T, dZi
+                # ), self.sigmoid_prime(Zi))
                 dZi = np.multiply(np.matmul(
                     self.weights['W' + str(i + 1)].T, dZi
-                ), self.sigmoid_prime(Zi))
+                ), (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)])))
                 dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             else:
                 dZi = self.cache['A' + str(i)] - Y
@@ -95,9 +98,9 @@ class DeepNeuralNetwork:
             self.weights['W' + str(i)] -= alpha * dWi
             self.weights['b' + str(i)] -= alpha * dbi
 
-    def sigmoid_prime(self, Y):
-        """define the derivative of the sigmoid activation function"""
-        return self.sigmoid(Y) * (1 - self.sigmoid(Y))
+    # def sigmoid_prime(self, Y):
+    #     """define the derivative of the sigmoid activation function"""
+    #     return self.sigmoid(Y) * (1 - self.sigmoid(Y))
 
     # dZ2 = A2 - Y
     # m = Y.shape[1]
