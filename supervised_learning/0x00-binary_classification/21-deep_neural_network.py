@@ -117,3 +117,28 @@ class DeepNeuralNetwork:
     # self.__b2 -= alpha * db2
     # self.__W1 -= alpha * dW1
     # self.__b1 -= alpha * db1
+
+    # Other option (works like a charm):
+    # def gradient_descent(self, Y, cache, alpha=0.05):
+    #     """function that calculates one pass of gradient descent"""
+    #     dWi, dbi, Wi, bi = {}, {}, {}, {}
+    #     for i in range(self.L, 0, -1):
+    #         m = Y.shape[1]
+    #         if i != self.L:
+    #             dZi = np.multiply(np.matmul(
+    #                 self.weights['W' + str(i + 1)].T, dZi
+    #             ), (self.cache['A' + str(i)] *
+    #                 (1 - self.cache['A' + str(i)])))
+    #         else:
+    #             dZi = self.cache['A' + str(i)] - Y
+    #         dWi['W' + str(i)] = (1 / m) * np.matmul(
+    #             dZi, self.cache['A' + str(i - 1)].T)
+    #         dbi['b' + str(i)] = (1 / m) * np.sum(dZi, axis=1, keepdims=True)
+    #         Wi['W' + str(i)] = self.__weights['W' + str(i)]
+    #         bi['b' + str(i)] = self.__weights['b' + str(i)]
+    #         Wi = dict(map(lambda kv: (kv[0], kv[1] - alpha * dWi[kv[0]]),
+    #                       Wi.items()))
+    #         bi = dict(map(lambda kv: (kv[0], kv[1] - alpha * dbi[kv[0]]),
+    #                       bi.items()))
+    #         self.__weights = Wi
+    #         self.__weights.update(bi)
