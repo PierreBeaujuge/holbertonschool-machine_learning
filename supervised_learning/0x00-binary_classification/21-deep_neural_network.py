@@ -78,35 +78,42 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """function that calculates one pass of gradient descent"""
+        # make a shallow copy of self.weights dict since Wi arrays should not
+        # be updated between iterations in the for loop, but rather at the end
+        # of the backpropagation step! (note: deep copy is another option)
+        weights = self.weights.copy()
+        # print(id(weights) == id(self.weights))
+        # print(id(weights['W1']) == id(self.weights['W1']))
         for i in range(self.L, 0, -1):
             m = Y.shape[1]
             if i != self.L:
-                # Zi = np.matmul(
-                #     self.weights['W' + str(i)], self.cache['A' + str(i - 1)]
-                # ) + self.weights['b' + str(i)]
-                # dZi = np.multiply(np.matmul(
-                #     self.weights['W' + str(i + 1)].T, dZi
-                # ), self.sigmoid_prime(Zi))
                 dZi = np.multiply(np.matmul(
-                    self.weights['W' + str(i + 1)].T, dZi
+                    weights['W' + str(i + 1)].T, dZi
+                    # problematic since Wi arrays change between iterations
+                    # in self.weights dict (use the shallow copy instead):
+                    # self.weights['W' + str(i + 1)].T, dZi
                 ), (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)])))
-                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             else:
                 dZi = self.cache['A' + str(i)] - Y
-                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
+            dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             dbi = (1 / m) * np.sum(dZi, axis=1, keepdims=True)
-            self.weights['W' + str(i)] -= alpha * dWi
-            self.weights['b' + str(i)] -= alpha * dbi
+            # changing the original self.weights dict values does NOT change
+            # the shallow copy values:
+            self.__weights['W' + str(i)] = weights['W' + str(i)] - alpha * dWi
+            self.__weights['b' + str(i)] = weights['b' + str(i)] - alpha * dbi
+            # this changes the Wi arrays between iterations (wrong):
+            # self.__weights['W' + str(i)] -= alpha * dWi
+            # self.__weights['b' + str(i)] -= alpha * dbi
 
-    # def sigmoid_prime(self, Y):
-    #     """define the derivative of the sigmoid activation function"""
-    #     return self.sigmoid(Y) * (1 - self.sigmoid(Y))
-
+    # As a reminder for, a nn with two layers:
     # dZ2 = A2 - Y
     # m = Y.shape[1]
     # dW2 = (1 / m) * np.matmul(dZ2, A1.T)
     # db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
-    # Z1 = np.matmul(self.W1, X) + self.b1
-    # dZ1 = np.multiply(np.matmul(self.W2.T, dZ2), self.sigmoid_prime(Z1))
+    # dZ1 = np.multiply(np.matmul(self.W2.T, dZ2), (A1 * (1 - A1)))
     # dW1 = (1 / m) * np.matmul(dZ1, X.T)
     # db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
+    # self.__W2 -= alpha * dW2
+    # self.__b2 -= alpha * db2
+    # self.__W1 -= alpha * dW1
+    # self.__b1 -= alpha * db1

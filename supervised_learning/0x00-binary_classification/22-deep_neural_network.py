@@ -78,26 +78,19 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """function that calculates one pass of gradient descent"""
+        weights = self.weights.copy()
         for i in range(self.L, 0, -1):
             m = Y.shape[1]
             if i != self.L:
-                Zi = np.matmul(
-                    self.weights['W' + str(i)], self.cache['A' + str(i - 1)]
-                ) + self.weights['b' + str(i)]
                 dZi = np.multiply(np.matmul(
-                    self.weights['W' + str(i + 1)].T, dZi
-                ), self.sigmoid_prime(Zi))
-                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
+                    weights['W' + str(i + 1)].T, dZi
+                ), (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)])))
             else:
                 dZi = self.cache['A' + str(i)] - Y
-                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
+            dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             dbi = (1 / m) * np.sum(dZi, axis=1, keepdims=True)
-            self.weights['W' + str(i)] -= alpha * dWi
-            self.weights['b' + str(i)] -= alpha * dbi
-
-    def sigmoid_prime(self, Y):
-        """define the derivative of the sigmoid activation function"""
-        return self.sigmoid(Y) * (1 - self.sigmoid(Y))
+            self.__weights['W' + str(i)] = weights['W' + str(i)] - alpha * dWi
+            self.__weights['b' + str(i)] = weights['b' + str(i)] - alpha * dbi
 
     def train(self, X, Y, iterations=5000, alpha=0.05):
         """function that trains the dnn"""

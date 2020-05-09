@@ -3,7 +3,6 @@
 Binary Classification
 """
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 class DeepNeuralNetwork:
@@ -79,54 +78,34 @@ class DeepNeuralNetwork:
 
     def gradient_descent(self, Y, cache, alpha=0.05):
         """function that calculates one pass of gradient descent"""
-        weights = self.weights.copy()
         for i in range(self.L, 0, -1):
             m = Y.shape[1]
             if i != self.L:
+                # Zi = np.matmul(
+                #     self.weights['W' + str(i)], self.cache['A' + str(i - 1)]
+                # ) + self.weights['b' + str(i)]
+                # dZi = np.multiply(np.matmul(
+                #     self.weights['W' + str(i + 1)].T, dZi
+                # ), self.sigmoid_prime(Zi))
                 dZi = np.multiply(np.matmul(
-                    weights['W' + str(i + 1)].T, dZi
+                    self.weights['W' + str(i + 1)].T, dZi
                 ), (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)])))
+                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             else:
                 dZi = self.cache['A' + str(i)] - Y
-            dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
+                dWi = (1 / m) * np.matmul(dZi, self.cache['A' + str(i - 1)].T)
             dbi = (1 / m) * np.sum(dZi, axis=1, keepdims=True)
-            self.__weights['W' + str(i)] = weights['W' + str(i)] - alpha * dWi
-            self.__weights['b' + str(i)] = weights['b' + str(i)] - alpha * dbi
+            self.__weights['W' + str(i)] -= alpha * dWi
+            self.__weights['b' + str(i)] -= alpha * dbi
 
-    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True,
-              graph=True, step=100):
-        """function that trains the dnn"""
-        if not isinstance(iterations, int):
-            raise TypeError('iterations must be an integer')
-        if iterations <= 0:
-            raise ValueError('iterations must be a positive integer')
-        if not isinstance(alpha, float):
-            raise TypeError('alpha must be a float')
-        if alpha <= 0:
-            raise ValueError('alpha must be positive')
+    # def sigmoid_prime(self, Y):
+    #     """define the derivative of the sigmoid activation function"""
+    #     return self.sigmoid(Y) * (1 - self.sigmoid(Y))
 
-        if verbose is True or graph is True:
-            if not isinstance(step, int):
-                raise TypeError('step must be an integer')
-            if step <= 0 or step > iterations:
-                raise ValueError('step must be positive and <= iterations')
-        cost_data = []
-        step_data = []
-        for i in range(iterations + 1):
-            A, cache = self.forward_prop(X)
-            # backpropagate except for last iteration (5000):
-            if i != iterations:
-                self.gradient_descent(Y, cache, alpha)
-            if (i % step) == 0:
-                cost = self.cost(Y, A)
-                cost_data += [cost]
-                step_data += [i]
-                if verbose is True:
-                    print('Cost after {} iterations: {}'.format(i, cost))
-        if graph is True:
-            plt.plot(step_data, cost_data, 'b')
-            plt.xlabel('iteration')
-            plt.ylabel('cost')
-            plt.title('Training Cost')
-            plt.show()
-        return np.where(A >= 0.5, 1, 0), cost
+    # dZ2 = A2 - Y
+    # m = Y.shape[1]
+    # dW2 = (1 / m) * np.matmul(dZ2, A1.T)
+    # db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
+    # dZ1 = np.multiply(np.matmul(self.W2.T, dZ2), (A1 * (1 - A1)))
+    # dW1 = (1 / m) * np.matmul(dZ1, X.T)
+    # db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
