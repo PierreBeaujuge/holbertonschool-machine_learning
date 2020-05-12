@@ -68,7 +68,7 @@ class DeepNeuralNetwork:
 
     def sigmoid(self, Y):
         """define the sigmoid activation function"""
-        return 1 / (1 + np.exp(-1 * Y))
+        return 1 / (1 + np.exp(-Y))
 
     def softmax(self, Y):
         """define the softmax activation function"""
@@ -82,7 +82,7 @@ class DeepNeuralNetwork:
         # output layer of "classes" nodes -> no need to
         # convert A to one_hot np.ndarray!
         # cross-entropy for a multiclass classification:
-        return (-1 / m) * np.sum(Y * np.log(A))
+        return -np.sum(Y * np.log(A)) / m
 
     def evaluate(self, X, Y):
         """function that evaluates the dnn's predictions"""
