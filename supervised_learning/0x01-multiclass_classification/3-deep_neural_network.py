@@ -149,10 +149,10 @@ class DeepNeuralNetwork:
             plt.title('Training Cost')
             plt.show()
         # return is updated to yield A as one_hot array:
-        # M = np.max(A, axis=0)
-        # return np.where(A == M, 1, 0), cost
+        M = np.max(A, axis=0)
+        return np.where(A == M, 1, 0), cost
         # change: return self.evaluate() based on apparent checker constraint
-        return self.evaluate(X, Y)
+        # return self.evaluate(X, Y)
 
     def save(self, filename):
         """function that saves a dnn instance to a file in pkl format"""
