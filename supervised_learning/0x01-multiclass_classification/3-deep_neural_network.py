@@ -93,7 +93,7 @@ class DeepNeuralNetwork:
         # print("A.shape: {}".format(A.shape))
         cost = self.cost(Y, A)
         # return is updated to yield A as one_hot array:
-        M = np.max(A, axis=0)
+        M = np.amax(A, axis=0)
         return np.where(A == M, 1, 0), cost
 
     def gradient_descent(self, Y, cache, alpha=0.05):
@@ -105,6 +105,9 @@ class DeepNeuralNetwork:
                 dZi = np.multiply(np.matmul(
                     weights['W' + str(i + 1)].T, dZi
                 ), (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)])))
+                # dZi = np.matmul(
+                #     weights['W' + str(i + 1)].T, dZi
+                # ) * (self.cache['A' + str(i)] * (1 - self.cache['A' + str(i)]))
             else:
                 dZi = self.cache['A' + str(i)] - Y
             dWi = np.matmul(dZi, self.cache['A' + str(i - 1)].T) / m
@@ -149,8 +152,9 @@ class DeepNeuralNetwork:
             plt.title('Training Cost')
             plt.show()
         # return is updated to yield A as one_hot array:
-        M = np.max(A, axis=0)
-        return np.where(A == M, 1, 0), cost
+        M = np.amax(A, axis=0)
+        # return np.where(A == M, 1, 0), cost
+        return self.evaluate(X, Y)
 
     def save(self, filename):
         """function that saves a dnn instance to a file in pkl format"""
