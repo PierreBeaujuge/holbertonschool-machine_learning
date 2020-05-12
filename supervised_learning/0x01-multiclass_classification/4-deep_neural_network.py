@@ -21,7 +21,7 @@ class DeepNeuralNetwork:
         if not isinstance(layers, list) or not len(layers):
             raise TypeError('layers must be a list of positive integers')
         if activation not in ['sig', 'tanh']:
-            raise ValueError('activation must be \'sig\' or \'tanh\'')
+            raise ValueError("activation must be 'sig' or 'tanh'")
         self.nx = nx
         self.layers = layers
         # initialize activation attribute for the hidden layers
