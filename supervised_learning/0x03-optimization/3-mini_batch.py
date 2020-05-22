@@ -36,12 +36,20 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                 batches_int = int(X_train.shape[0] / batch_size)
                 step = 0
 
-                for i in range(0, batches_int):
+                for i in range(0, batches_int + 1):
                     step += 1
                     sess.run(train_op, feed_dict={
                         x: X_shuff[i * batch_size: (i + 1) * batch_size],
                         y: Y_shuff[i * batch_size: (i + 1) * batch_size]
                     })
+                    if i == batches_int:
+                        if batches_float > batches_int:
+                            sess.run(train_op, feed_dict={
+                                x: X_shuff[(i + 1) * batch_size:],
+                                y: Y_shuff[(i + 1) * batch_size:]
+                            })
+                        else:
+                            break
                     if step % 100 == 0:
                         loss_b = sess.run(loss, feed_dict={
                             x: X_shuff[i * batch_size: (i + 1) * batch_size],
@@ -54,11 +62,6 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                         print("Step {}:".format(step))
                         print("\tCost: {}".format(loss_b))
                         print("\tAccuracy: {}".format(acc_b))
-                if batches_float > batches_int:
-                    sess.run(train_op, feed_dict={
-                        x: X_shuff[(i + 1) * batch_size:],
-                        y: Y_shuff[(i + 1) * batch_size:]
-                    })
 
         save_path = loader.save(sess, save_path)
     return save_path
