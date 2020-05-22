@@ -59,9 +59,9 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                             x: X_shuff[i * batch_size: (i + 1) * batch_size],
                             y: Y_shuff[i * batch_size: (i + 1) * batch_size]
                         })
-                        print("Step {}:".format(step))
-                        print("\tCost: {}".format(loss_b))
-                        print("\tAccuracy: {}".format(acc_b))
+                        print("\tStep {}:".format(step))
+                        print("\t\tCost: {}".format(loss_b))
+                        print("\t\tAccuracy: {}".format(acc_b))
 
         save_path = loader.save(sess, save_path)
     return save_path
