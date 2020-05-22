@@ -102,45 +102,48 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
 
                 # shuffle input data before each epoch
                 shuffle = np.random.permutation(Data_train[0].shape[0])
-                X_train = Data_train[0][shuffle]
-                Y_train = Data_train[1][shuffle]
+                X_shuff = Data_train[0][shuffle]
+                Y_shuff = Data_train[1][shuffle]
 
                 # initialize the for loop for the mini-batch training
-                batches_float = X_train.shape[0] / batch_size
-                batches_int = int(X_train.shape[0] / batch_size)
+                batches_float = Data_train[0].shape[0] / batch_size
+                batches_int = int(Data_train[0].shape[0] / batch_size)
                 step = 0
 
                 # initialize and update the learning rate alpha
                 gs = sess.run(global_step.assign(epoch))
                 a = sess.run(alpha)
-                print("a in for epoch loop: {}".format(a))
+                # print("a in for epoch loop: {}".format(a))
                 # print("alpha: {}".format(alpha))
 
-                for i in range(0, batches_int):
-                    # print("a in for i loop: {}".format(a))
+                for i in range(0, batches_int + 1):
+                    # print("a in for step loop: {}".format(a))
                     step += 1
+                    if i == batches_int:
+                        if batches_float > batches_int:
+                            sess.run(train_op, feed_dict={
+                                x: X_shuff[(i + 1) * batch_size:],
+                                y: Y_shuff[(i + 1) * batch_size:]
+                            })
+                        else:
+                            break
                     sess.run(train_op, feed_dict={
-                        x: X_train[i * batch_size: (i + 1) * batch_size],
-                        y: Y_train[i * batch_size: (i + 1) * batch_size]
+                        x: X_shuff[i * batch_size: (i + 1) * batch_size],
+                        y: Y_shuff[i * batch_size: (i + 1) * batch_size]
                     })
                     if step % 100 == 0:
-                        print("a in for step loop: {}".format(a))
+                        # print("a in for step loop: {}".format(a))
                         loss_b = sess.run(loss, feed_dict={
-                            x: X_train[i * batch_size: (i + 1) * batch_size],
-                            y: Y_train[i * batch_size: (i + 1) * batch_size]
+                            x: X_shuff[i * batch_size: (i + 1) * batch_size],
+                            y: Y_shuff[i * batch_size: (i + 1) * batch_size]
                         })
                         acc_b = sess.run(accuracy, feed_dict={
-                            x: X_train[i * batch_size: (i + 1) * batch_size],
-                            y: Y_train[i * batch_size: (i + 1) * batch_size]
+                            x: X_shuff[i * batch_size: (i + 1) * batch_size],
+                            y: Y_shuff[i * batch_size: (i + 1) * batch_size]
                         })
-                        print("Step {}:".format(step))
-                        print("\tCost: {}".format(loss_b))
-                        print("\tAccuracy: {}".format(acc_b))
-                if batches_float > batches_int:
-                    sess.run(train_op, feed_dict={
-                        x: X_train[(i + 1) * batch_size:],
-                        y: Y_train[(i + 1) * batch_size:]
-                    })
+                        print("\tStep {}:".format(step))
+                        print("\t\tCost: {}".format(loss_b))
+                        print("\t\tAccuracy: {}".format(acc_b))
 
         save_path = saver.save(sess, save_path)
     return save_path
