@@ -41,8 +41,8 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                     if i == batches_int:
                         if batches_float > batches_int:
                             sess.run(train_op, feed_dict={
-                                x: X_shuff[(i + 1) * batch_size:],
-                                y: Y_shuff[(i + 1) * batch_size:]
+                                x: X_shuff[i * batch_size:],
+                                y: Y_shuff[i * batch_size:]
                             })
                         else:
                             break
