@@ -7,8 +7,9 @@ import numpy as np
 
 def batch_norm(Z, gamma, beta, epsilon):
     """function that normalizes an unactivated output by batch normalization"""
-    m, s = normalization_constants(Z)
-    Z_norm = (Z - m) / (s + epsilon)
+    m, stddev = normalization_constants(Z)
+    s = stddev ** 2
+    Z_norm = (Z - m) / np.sqrt(s + epsilon)
     Z_b_norm = gamma * Z_norm + beta
     return Z_b_norm
 
