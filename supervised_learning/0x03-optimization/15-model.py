@@ -147,8 +147,8 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
                     if i == batches_int:
                         if batches_float > batches_int:
                             sess.run(train_op, feed_dict={
-                                x: X_shuff[i * batch_size:],
-                                y: Y_shuff[i * batch_size:]
+                                x: X_shuff[(i + 1) * batch_size:],
+                                y: Y_shuff[(i + 1) * batch_size:]
                             })
                         else:
                             break
