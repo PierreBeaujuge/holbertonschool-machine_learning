@@ -33,13 +33,16 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
                 y_pred = activations[i](layer(y_pred))
             else:
                 y_pred = layer(y_pred)
-            print(y_pred)
             break
         layer = tf.layers.Dense(units=layers[i],
                                 activation=None,
                                 kernel_initializer=initializer,
                                 name='layer')
-        m, v = tf.nn.moments(layer(y_pred), axes=[0])
+        # Important: make a copy of layer(y_pred) here
+        # before the batch normalization operation
+        Z = layer(y_pred)
+        # m, v = tf.nn.moments(layer(y_pred), axes=[0])
+        m, v = tf.nn.moments(Z, axes=[0])
         beta = tf.Variable(
             tf.zeros(shape=(1, layers[i]), dtype=tf.float32),
             trainable=True, name='beta'
@@ -48,15 +51,25 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
             tf.ones(shape=(1, layers[i]), dtype=tf.float32),
             trainable=True, name='gamma'
         )
+        # Z = layer(y_pred)
+        # beta = tf.Variable(tf.constant(0.0, shape=[layers[i]]),
+        #                    name='beta', trainable=True)
+        # gamma = tf.Variable(tf.constant(1.0, shape=[layers[i]]),
+        #                     name='gamma', trainable=True)
+        # m, v = tf.nn.moments(layer(y_pred), axes=[0])
+        # m, v = tf.nn.moments(Z, axes=[0])
+        # Z_b_norm = tf.nn.batch_normalization(
+        #     x=layer(y_pred), mean=m, variance=v, offset=beta, scale=gamma,
+        #     variance_epsilon=epsilon, name=None
+        # )
         Z_b_norm = tf.nn.batch_normalization(
-            x=layer(y_pred), mean=m, variance=v, offset=beta, scale=gamma,
+            x=Z, mean=m, variance=v, offset=beta, scale=gamma,
             variance_epsilon=epsilon, name=None
         )
         if activations and activations[i]:
             y_pred = activations[i](Z_b_norm)
         else:
             y_pred = Z_b_norm
-        print(y_pred)
 
     # define graph operation for accuracy
     label = tf.argmax(y, axis=1)
