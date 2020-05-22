@@ -24,6 +24,17 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
             y_pred = x
         initializer = tf.contrib.layers.variance_scaling_initializer(
             mode="FAN_AVG")
+        if i == len(layers) - 1:
+            layer = tf.layers.Dense(units=layers[i],
+                                    activation=None,
+                                    kernel_initializer=initializer,
+                                    name='layer')
+            if activations and activations[i]:
+                y_pred = activations[i](layer(y_pred))
+            else:
+                y_pred = layer(y_pred)
+            print(y_pred)
+            break
         layer = tf.layers.Dense(units=layers[i],
                                 activation=None,
                                 kernel_initializer=initializer,
@@ -45,6 +56,7 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
             y_pred = activations[i](Z_b_norm)
         else:
             y_pred = Z_b_norm
+        print(y_pred)
 
     # define graph operation for accuracy
     label = tf.argmax(y, axis=1)
