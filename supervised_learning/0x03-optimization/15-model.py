@@ -104,15 +104,11 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
                 shuffle = np.random.permutation(Data_train[0].shape[0])
                 X_shuff = Data_train[0][shuffle]
                 Y_shuff = Data_train[1][shuffle]
-                print(X_shuff.shape)
-                print(Y_shuff.shape)
 
                 # initialize the for loop for the mini-batch training
                 batches_float = Data_train[0].shape[0] / batch_size
                 batches_int = int(Data_train[0].shape[0] / batch_size)
                 step = 0
-                print(batches_float)
-                print(batches_int)
 
                 # initialize and update the learning rate alpha
                 gs = sess.run(global_step.assign(epoch))
