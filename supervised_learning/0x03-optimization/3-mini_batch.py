@@ -38,10 +38,6 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
 
                 for i in range(0, batches_int + 1):
                     step += 1
-                    sess.run(train_op, feed_dict={
-                        x: X_shuff[i * batch_size: (i + 1) * batch_size],
-                        y: Y_shuff[i * batch_size: (i + 1) * batch_size]
-                    })
                     if i == batches_int:
                         if batches_float > batches_int:
                             sess.run(train_op, feed_dict={
@@ -50,6 +46,10 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
                             })
                         else:
                             break
+                    sess.run(train_op, feed_dict={
+                        x: X_shuff[i * batch_size: (i + 1) * batch_size],
+                        y: Y_shuff[i * batch_size: (i + 1) * batch_size]
+                    })
                     if step % 100 == 0:
                         loss_b = sess.run(loss, feed_dict={
                             x: X_shuff[i * batch_size: (i + 1) * batch_size],
