@@ -29,13 +29,10 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
                                     activation=None,
                                     kernel_initializer=initializer,
                                     name='layer')
-            # Y = layer(y_pred)
             if len(activations) and activations[i]:
                 y_pred = activations[i](layer(y_pred))
-                # y_pred = activations[i](Y)
             else:
                 y_pred = layer(y_pred)
-                # y_pred = Y
             break
         layer = tf.layers.Dense(units=layers[i],
                                 activation=None,
@@ -53,11 +50,6 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
             tf.ones(shape=(1, layers[i]), dtype=tf.float32),
             trainable=True, name='gamma'
         )
-        # beta = tf.Variable(tf.constant(0.0, shape=[layers[i]]),
-        #                    name='beta', trainable=True)
-        # gamma = tf.Variable(tf.constant(1.0, shape=[layers[i]]),
-        #                     name='gamma', trainable=True)
-        # m, v = tf.nn.moments(Z, axes=[0])
         Z_b_norm = tf.nn.batch_normalization(
             x=Z, mean=m, variance=v, offset=beta, scale=gamma,
             variance_epsilon=epsilon, name=None
@@ -121,47 +113,46 @@ def model(Data_train, Data_valid, layers, activations, alpha=0.001,
 
             if epoch < epochs:
 
-                # shuffle input data before each epoch
+                # shuffle input data before each new epoch
                 shuffle = np.random.permutation(Data_train[0].shape[0])
                 X_shuff = Data_train[0][shuffle]
                 Y_shuff = Data_train[1][shuffle]
 
-                # initialize the for loop for the mini-batch training
+                # define iteration range for the mini-batch training
                 batches_float = Data_train[0].shape[0] / batch_size
                 batches_int = int(Data_train[0].shape[0] / batch_size)
+
+                # gradient descent step
+                # reinitialized to 0 between epochs
                 step = 0
 
                 # initialize and update the learning rate alpha
                 gs = sess.run(global_step.assign(epoch))
                 a = sess.run(alpha)
-                # print("a in for epoch loop: {}".format(a))
-                # print("alpha: {}".format(alpha))
 
                 for i in range(0, batches_int + 1):
-                    # print("a in for step loop: {}".format(a))
                     step += 1
+
+                    # Important: make copies of X_shuff and Y_shuff
                     if i == batches_int:
                         if batches_float > batches_int:
-                            sess.run(train_op, feed_dict={
-                                x: X_shuff[i * batch_size:],
-                                y: Y_shuff[i * batch_size:]
-                            })
+                            X_batch = X_shuff[i * batch_size:]
+                            Y_batch = Y_shuff[i * batch_size:]
                         else:
                             break
-                    sess.run(train_op, feed_dict={
-                        x: X_shuff[i * batch_size: (i + 1) * batch_size],
-                        y: Y_shuff[i * batch_size: (i + 1) * batch_size]
-                    })
+                    else:
+                        X_batch = X_shuff[i * batch_size: (i + 1) * batch_size]
+                        Y_batch = Y_shuff[i * batch_size: (i + 1) * batch_size]
+
+                    # then pass the copies on to feed_dict / train_op
+                    sess.run(train_op, feed_dict={x: X_batch, y: Y_batch})
+
+                    # print after every 100 gradient descent steps
                     if step % 100 == 0:
-                        # print("a in for step loop: {}".format(a))
                         loss_b = sess.run(loss, feed_dict={
-                            x: X_shuff[i * batch_size: (i + 1) * batch_size],
-                            y: Y_shuff[i * batch_size: (i + 1) * batch_size]
-                        })
+                            x: X_batch, y: Y_batch})
                         acc_b = sess.run(accuracy, feed_dict={
-                            x: X_shuff[i * batch_size: (i + 1) * batch_size],
-                            y: Y_shuff[i * batch_size: (i + 1) * batch_size]
-                        })
+                            x: X_batch, y: Y_batch})
                         print("\tStep {}:".format(step))
                         print("\t\tCost: {}".format(loss_b))
                         print("\t\tAccuracy: {}".format(acc_b))
