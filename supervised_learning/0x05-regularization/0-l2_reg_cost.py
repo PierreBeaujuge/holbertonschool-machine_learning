@@ -11,8 +11,9 @@ def l2_reg_cost(cost, lambtha, weights, L, m):
     # function that calculates the Frobenius norm (when ord=None)
     # numpy.linalg.norm(x, ord=None, axis=None, keepdims=False)
     frobenius_norm = 0
-    for weight in weights.values():
-        frobenius_norm += np.linalg.norm(weight)
+    for key, weight in weights.items():
+        if key[0] == 'W':
+            frobenius_norm += np.linalg.norm(weight)
     cost += lambtha / (2 * m) * frobenius_norm
     return cost
 
