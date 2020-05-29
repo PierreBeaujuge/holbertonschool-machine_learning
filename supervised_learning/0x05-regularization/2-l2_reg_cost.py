@@ -3,7 +3,6 @@
 L2 Regularization Cost
 """
 import tensorflow as tf
-import numpy as np
 
 
 def l2_reg_cost(cost):
