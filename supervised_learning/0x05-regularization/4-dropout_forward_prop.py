@@ -15,11 +15,12 @@ def dropout_forward_prop(X, weights, L, keep_prob):
         ) + weights['b' + str(i + 1)]
         # output layer: use softmax activation function
         if i == L - 1:
-            cache['A' + str(i + 1)] = softmax(Zi)
+            cache['A' + str(i + 1)] = np.exp(Zi) / (
+                np.sum(np.exp(Zi), axis=0, keepdims=True))
         # hidden layers: use tanh activation function
         else:
             # all layers use tanh activation function, except last
-            cache['A' + str(i + 1)] = tanh(Zi)
+            cache['A' + str(i + 1)] = np.tanh(Zi)
             # dropout mask applied to hidden layers only, "after" activation
             # define a dropout array of 1 and 0, with keep_prob 1s
             # dropout mask should be different for every layer
@@ -34,11 +35,11 @@ def dropout_forward_prop(X, weights, L, keep_prob):
     return cache
 
 
-def tanh(Y):
-    """define the tanh activation function"""
-    return np.tanh(Y)
+# def tanh(Y):
+#     """define the tanh activation function"""
+#     return np.tanh(Y)
 
 
-def softmax(Y):
-    """define the softmax activation function"""
-    return np.exp(Y) / (np.sum(np.exp(Y), axis=0, keepdims=True))
+# def softmax(Y):
+#     """define the softmax activation function"""
+#     return np.exp(Y) / (np.sum(np.exp(Y), axis=0, keepdims=True))
