@@ -16,7 +16,7 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
             # introduce call to tanh_prime method
             dZi = np.multiply(np.matmul(
                 weights_copy['W' + str(i + 1)].T, dZi
-            ), tanh_prime(cache['A' + str(i)]))
+            ), 1 - cache['A' + str(i)] ** 2)
         else:
             # last layer uses a softmax activation
             dZi = cache['A' + str(i)] - Y
@@ -27,14 +27,4 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
         # term l2 is < 1 -> "Weight Decay"
         l2 = (1 - alpha * lambtha / m)
         weights['W' + str(i)] = l2 * weights_copy['W' + str(i)] - alpha * dWi
-        weights['b' + str(i)] = l2 * weights_copy['b' + str(i)] - alpha * dbi
-
-
-def tanh(Y):
-    """define the tanh activation function"""
-    return np.tanh(Y)
-
-
-def tanh_prime(Y):
-    """define the derivative of the activation function tanh"""
-    return 1 - Y ** 2
+        weights['b' + str(i)] = weights_copy['b' + str(i)] - alpha * dbi
