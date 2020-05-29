@@ -33,13 +33,3 @@ def dropout_forward_prop(X, weights, L, keep_prob):
             cache['A' + str(i + 1)] /= keep_prob
             cache['D' + str(i + 1)] = drop
     return cache
-
-
-# def tanh(Y):
-#     """define the tanh activation function"""
-#     return np.tanh(Y)
-
-
-# def softmax(Y):
-#     """define the softmax activation function"""
-#     return np.exp(Y) / (np.sum(np.exp(Y), axis=0, keepdims=True))
