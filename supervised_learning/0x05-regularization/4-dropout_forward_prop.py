@@ -24,9 +24,9 @@ def dropout_forward_prop(X, weights, L, keep_prob):
             # dropout mask applied to hidden layers only, "after" activation
             # define a dropout array of 1 and 0, with keep_prob 1s
             # dropout mask should be different for every layer
-            drop = np.where((np.random.rand(
+            drop = np.where(np.random.rand(
                 cache['A' + str(i + 1)].shape[0],
-                cache['A' + str(i + 1)].shape[1]) < keep_prob) == 1, 1, 0)
+                cache['A' + str(i + 1)].shape[1]) < keep_prob, 1, 0)
             # regularize by shutting off keep_prob outputs
             # and normalize by keep_prob (important)
             cache['A' + str(i + 1)] *= drop
