@@ -21,10 +21,7 @@ def dropout_forward_prop(X, weights, L, keep_prob):
             boolean = np.random.rand(
                 cache['A' + str(i + 1)].shape[0],
                 cache['A' + str(i + 1)].shape[1]) < keep_prob
-            # second the boolean gets passed to np.where
             drop = np.where(boolean == 1, 1, 0)
-            # regularize by shutting off keep_prob outputs
-            # and normalize by keep_prob <- important
             cache['A' + str(i + 1)] *= drop
             cache['A' + str(i + 1)] /= keep_prob
             cache['D' + str(i + 1)] = drop
