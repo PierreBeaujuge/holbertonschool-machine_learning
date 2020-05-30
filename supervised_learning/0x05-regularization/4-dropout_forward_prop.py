@@ -18,10 +18,6 @@ def dropout_forward_prop(X, weights, L, keep_prob):
                 np.sum(np.exp(Zi), axis=0, keepdims=True))
         else:
             cache['A' + str(i + 1)] = np.tanh(Zi)
-            # dropout mask applied to hidden layers only, after activation
-            # define a dropout array of 1 and 0, with keep_prob 1s
-            # dropout mask should be different for every layer
-            # important: first define boolean instance
             boolean = np.random.rand(
                 cache['A' + str(i + 1)].shape[0],
                 cache['A' + str(i + 1)].shape[1]) < keep_prob
