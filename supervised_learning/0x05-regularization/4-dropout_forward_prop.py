@@ -13,8 +13,6 @@ def dropout_forward_prop(X, weights, L, keep_prob):
         Zi = np.matmul(
             weights['W' + str(i + 1)], cache['A' + str(i)]
         ) + weights['b' + str(i + 1)]
-        # output layer: use softmax activation function
-        # hidden layers: use tanh activation function
         if i == L - 1:
             cache['A' + str(i + 1)] = np.exp(Zi) / (
                 np.sum(np.exp(Zi), axis=0, keepdims=True))
