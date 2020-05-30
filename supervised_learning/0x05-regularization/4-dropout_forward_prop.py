@@ -21,7 +21,7 @@ def dropout_forward_prop(X, weights, L, keep_prob):
         else:
             # all layers use tanh activation function, except last
             cache['A' + str(i + 1)] = np.tanh(Zi)
-            # dropout mask applied to hidden layers only, "after" activation
+            # dropout mask applied to hidden layers only, after activation
             # define a dropout array of 1 and 0, with keep_prob 1s
             # dropout mask should be different for every layer
             # important: first define boolean instance
