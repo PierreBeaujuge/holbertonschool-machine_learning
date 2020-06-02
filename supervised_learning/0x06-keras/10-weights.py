@@ -2,7 +2,7 @@
 """
 Save and Load Weights
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def save_weights(network, filename, save_format='h5'):
