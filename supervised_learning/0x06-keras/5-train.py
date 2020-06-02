@@ -2,7 +2,7 @@
 """
 Train a model, with validaiton data
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def train_model(network, data, labels, batch_size, epochs,

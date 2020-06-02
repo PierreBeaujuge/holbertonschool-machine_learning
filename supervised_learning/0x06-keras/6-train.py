@@ -2,7 +2,7 @@
 """
 Train a model, with early stopping
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def train_model(network, data, labels, batch_size, epochs,
@@ -13,8 +13,8 @@ def train_model(network, data, labels, batch_size, epochs,
     if validation_data and early_stopping:
         # The patience parameter is the number of epochs
         # upon which improvement should be checked
-        early_stop = tf.keras.callbacks.EarlyStopping(monitor='val_loss',
-                                                      patience=patience)
+        early_stop = K.callbacks.EarlyStopping(monitor='val_loss',
+                                               patience=patience)
     history = network.fit(x=data, y=labels,
                           batch_size=batch_size,
                           epochs=epochs,
