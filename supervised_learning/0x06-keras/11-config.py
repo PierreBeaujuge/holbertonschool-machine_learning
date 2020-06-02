@@ -2,7 +2,7 @@
 """
 Save and Load Configuration
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def save_config(network, filename):
@@ -17,5 +17,5 @@ def load_config(filename):
     """loads a model with a specific configuration"""
     with open(filename, 'r') as f:
         config = f.read()
-    network = tf.keras.models.model_from_json(config)
+    network = K.models.model_from_json(config)
     return network
