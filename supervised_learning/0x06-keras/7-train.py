@@ -11,14 +11,15 @@ def train_model(network, data, labels, batch_size, epochs,
                 verbose=True, shuffle=False):
     """function that trains a model using mini-batch gradient descent"""
 
-    early_stop = None
-    lr_decay = None
+    callbacks = []
 
     if validation_data and early_stopping:
         # The patience parameter is the number of epochs
         # upon which improvement should be checked
         early_stop = K.callbacks.EarlyStopping(monitor='val_loss',
                                                patience=patience)
+        callbacks.append(early_stop)
+
     if validation_data and learning_rate_decay:
 
         def schedule(epoch):
@@ -30,6 +31,7 @@ def train_model(network, data, labels, batch_size, epochs,
 
         lr_decay = K.callbacks.LearningRateScheduler(
             schedule=schedule, verbose=1)
+        callbacks.append(lr_decay)
 
     history = network.fit(x=data, y=labels,
                           batch_size=batch_size,
@@ -37,5 +39,5 @@ def train_model(network, data, labels, batch_size, epochs,
                           verbose=verbose,
                           shuffle=shuffle,
                           validation_data=validation_data,
-                          callbacks=[early_stop, lr_decay])
+                          callbacks=callbacks)
     return history
