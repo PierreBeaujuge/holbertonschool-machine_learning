@@ -2,7 +2,7 @@
 """
 Train a model, with save the best iteration
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def train_model(network, data, labels, batch_size, epochs,
@@ -17,8 +17,8 @@ def train_model(network, data, labels, batch_size, epochs,
     if validation_data and early_stopping:
         # The patience parameter is the number of epochs
         # upon which improvement should be checked
-        early_stop = tf.keras.callbacks.EarlyStopping(monitor='val_loss',
-                                                      patience=patience)
+        early_stop = K.callbacks.EarlyStopping(monitor='val_loss',
+                                               patience=patience)
         callbacks.append(early_stop)
 
     if validation_data and learning_rate_decay:
@@ -30,7 +30,7 @@ def train_model(network, data, labels, batch_size, epochs,
             """
             return alpha / (1 + decay_rate * epoch)
 
-        lr_decay = tf.keras.callbacks.LearningRateScheduler(
+        lr_decay = K.callbacks.LearningRateScheduler(
             schedule=schedule, verbose=1)
         callbacks.append(lr_decay)
 
@@ -38,7 +38,7 @@ def train_model(network, data, labels, batch_size, epochs,
         # Create a callback that saves the entire model:
         # architecture, weights, and training configuration
         # continually saving the model both during and at the end of training
-        checkpoint = tf.keras.callbacks.ModelCheckpoint(
+        checkpoint = K.callbacks.ModelCheckpoint(
             filepath=filepath, monitor='val_loss', verbose=0,
             save_best_only=True, save_weights_only=False,
             mode='auto', period=1)
