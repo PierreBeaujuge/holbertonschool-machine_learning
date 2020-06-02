@@ -2,7 +2,7 @@
 """
 Predict
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def predict(network, data, verbose=False):
