@@ -2,22 +2,22 @@
 """
 Sequential - use the Sequential class
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def build_model(nx, layers, activations, lambtha, keep_prob):
     """function that builds a neural network with the Keras library"""
-    network = tf.keras.models.Sequential()
+    network = K.models.Sequential()
     for i in range(len(layers)):
         if i == 0:
-            network.add(tf.keras.layers.Dense(
+            network.add(K.layers.Dense(
                 layers[i], activation=activations[i],
-                kernel_regularizer=tf.keras.regularizers.l2(lambtha),
+                kernel_regularizer=K.regularizers.l2(lambtha),
                 input_shape=(nx,)))
         else:
-            network.add(tf.keras.layers.Dense(
+            network.add(K.layers.Dense(
                 layers[i], activation=activations[i],
-                kernel_regularizer=tf.keras.regularizers.l2(lambtha)))
+                kernel_regularizer=K.regularizers.l2(lambtha)))
         if i != len(layers) - 1:
-            network.add(tf.keras.layers.Dropout(1 - keep_prob))
+            network.add(K.layers.Dropout(1 - keep_prob))
     return network
