@@ -2,7 +2,7 @@
 """
 Save and Load Model
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def save_model(network, filename):
@@ -17,7 +17,7 @@ def save_model(network, filename):
 
 def load_model(filename):
     """loads an entire model"""
-    network = tf.keras.models.load_model(
+    network = K.models.load_model(
         filepath=filename,
         custom_objects=None,
         compile=True
