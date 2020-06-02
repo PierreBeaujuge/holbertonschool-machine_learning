@@ -2,7 +2,7 @@
 """
 Train a model, with learning rate decay
 """
-import tensorflow as tf
+import tensorflow.keras as K
 
 
 def train_model(network, data, labels, batch_size, epochs,
@@ -17,8 +17,8 @@ def train_model(network, data, labels, batch_size, epochs,
     if validation_data and early_stopping:
         # The patience parameter is the number of epochs
         # upon which improvement should be checked
-        early_stop = tf.keras.callbacks.EarlyStopping(monitor='val_loss',
-                                                      patience=patience)
+        early_stop = K.callbacks.EarlyStopping(monitor='val_loss',
+                                               patience=patience)
     if validation_data and learning_rate_decay:
 
         def schedule(epoch):
@@ -28,7 +28,7 @@ def train_model(network, data, labels, batch_size, epochs,
             """
             return alpha / (1 + decay_rate * epoch)
 
-        lr_decay = tf.keras.callbacks.LearningRateScheduler(
+        lr_decay = K.callbacks.LearningRateScheduler(
             schedule=schedule, verbose=1)
 
     history = network.fit(x=data, y=labels,
