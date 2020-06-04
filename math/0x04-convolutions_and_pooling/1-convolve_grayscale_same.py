@@ -15,14 +15,29 @@ def convolve_grayscale_same(images, kernel):
     image_num = np.arange(m)
     output = np.zeros(shape=(m, h, w))
 
-    for i in range(h - kh + 1):
-        for j in range(w - kw + 1):
+    # pad images before convolution
+    # distinguish between even and odd filter sizes
+    if kh % 2 == 0:
+        ph = int(kh/2)
+    else:
+        ph = int((kh - 1)/2)
+    if kw % 2 == 0:
+        pw = int(kw/2)
+    else:
+        pw = int((kw - 1)/2)
+
+    # pad images accordingly, padding always symmetric here
+    padded_images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
+                    mode='constant')
+
+    for i in range(h):
+        for j in range(w):
             output[
                 image_num,
-                i + int((kh - 1) / 2),
-                j + int((kw - 1) / 2)
+                i,
+                j
             ] = np.sum(
-                images[
+                padded_images[
                     image_num,
                     i: i + kh,
                     j: j + kw
