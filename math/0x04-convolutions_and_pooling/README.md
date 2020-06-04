@@ -1,0 +1,1 @@
+Learn and practice Convolutions and Pooling for Machine Learning
