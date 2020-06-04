@@ -28,7 +28,7 @@ def convolve_grayscale_same(images, kernel):
 
     # pad images accordingly, padding always symmetric here
     padded_images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
-                    mode='constant')
+                           mode='constant')
 
     for i in range(h):
         for j in range(w):
