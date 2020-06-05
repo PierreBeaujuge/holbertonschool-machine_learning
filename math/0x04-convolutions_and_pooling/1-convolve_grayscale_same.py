@@ -16,15 +16,7 @@ def convolve_grayscale_same(images, kernel):
     output = np.zeros(shape=(m, h, w))
 
     # pad images before convolution
-    # distinguish between even and odd filter sizes
-    # if kh % 2 == 0:
-    #     ph = int(kh/2)
-    # else:
-    #     ph = int((kh - 1)/2)
-    # if kw % 2 == 0:
-    #     pw = int(kw/2)
-    # else:
-    #     pw = int((kw - 1)/2)
+    # handle even vs. odd filter sizes with np.ceil()
     ph = int(np.ceil((kh - 1)/2))
     pw = int(np.ceil((kw - 1)/2))
 
