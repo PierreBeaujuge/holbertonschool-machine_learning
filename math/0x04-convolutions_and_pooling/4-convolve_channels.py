@@ -50,6 +50,6 @@ def convolve_channels(images, kernel, padding='same', stride=(1, 1)):
                     i * sh: i * sh + kh,
                     j * sw: j * sw + kw
                 ] * kernel,
-            axis=(1, 2, 3)
+                axis=(1, 2, 3)
             )
     return output
