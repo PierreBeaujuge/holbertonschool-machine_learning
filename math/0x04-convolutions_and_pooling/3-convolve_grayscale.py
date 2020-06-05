@@ -28,9 +28,10 @@ def convolve_grayscale(images, kernel, padding='same', stride=(1, 1)):
         ph = int(np.ceil(((sh * h) - sh + kh - h) / 2))
         pw = int(np.ceil(((sw * w) - sw + kw - w) / 2))
 
-    # pad images before convolution, padding always symmetric here
-    padded_images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
-                           mode='constant')
+    if isinstance(padding, tuple) or padding == 'same':
+        # pad images before convolution, padding always symmetric here
+        images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
+                        mode='constant')
 
     output = np.zeros(shape=(m,
                              int((h - kh + 2 * ph) / sh + 1),
@@ -43,7 +44,7 @@ def convolve_grayscale(images, kernel, padding='same', stride=(1, 1)):
                 i,
                 j
             ] = np.sum(
-                padded_images[
+                images[
                     image_num,
                     i * sh: i * sh + kh,
                     j * sw: j * sw + kw
