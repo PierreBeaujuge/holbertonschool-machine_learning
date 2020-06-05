@@ -17,14 +17,16 @@ def convolve_grayscale_same(images, kernel):
 
     # pad images before convolution
     # distinguish between even and odd filter sizes
-    if kh % 2 == 0:
-        ph = int(kh/2)
-    else:
-        ph = int((kh - 1)/2)
-    if kw % 2 == 0:
-        pw = int(kw/2)
-    else:
-        pw = int((kw - 1)/2)
+    # if kh % 2 == 0:
+    #     ph = int(kh/2)
+    # else:
+    #     ph = int((kh - 1)/2)
+    # if kw % 2 == 0:
+    #     pw = int(kw/2)
+    # else:
+    #     pw = int((kw - 1)/2)
+    ph = int(np.ceil((kh - 1)/2))
+    pw = int(np.ceil((kw - 1)/2))
 
     # pad images accordingly, padding always symmetric here
     padded_images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
