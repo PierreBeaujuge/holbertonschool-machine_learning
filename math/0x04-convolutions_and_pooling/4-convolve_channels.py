@@ -31,7 +31,7 @@ def convolve_channels(images, kernel, padding='same', stride=(1, 1)):
 
     if isinstance(padding, tuple) or padding == 'same':
         # pad images before convolution, padding always symmetric here
-        images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw)),
+        images = np.pad(images, pad_width=((0, 0), (ph, ph), (pw, pw), (0, 0)),
                         mode='constant')
 
     output = np.zeros(shape=(m,
