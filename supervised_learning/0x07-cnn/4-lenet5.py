@@ -54,9 +54,10 @@ def lenet5(x, y):
 
     return y_pred, train_op, loss, acc
 
+
 def accuracy(y, y_pred):
-        """evaluate the accuracy of the model"""
-        label = tf.argmax(y, axis=1)
-        pred = tf.argmax(y_pred, axis=1)
-        acc = tf.reduce_mean(tf.cast(tf.equal(label, pred), tf.float32))
-        return acc
+    """evaluate the accuracy of the model"""
+    label = tf.argmax(y, axis=1)
+    pred = tf.argmax(y_pred, axis=1)
+    acc = tf.reduce_mean(tf.cast(tf.equal(label, pred), tf.float32))
+    return acc

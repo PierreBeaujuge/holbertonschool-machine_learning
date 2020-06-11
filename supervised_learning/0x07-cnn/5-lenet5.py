@@ -24,23 +24,23 @@ def lenet5(X):
                             activation='relu')
     output = layer(output)
     layer = K.layers.MaxPool2D(pool_size=2,
-                                strides=2)
+                               strides=2)
     output = layer(output)
     layer = K.layers.Flatten()
     output = layer(output)
     layer = K.layers.Dense(units=120,
-                            activation='relu',
-                            kernel_initializer=initializer)
+                           activation='relu',
+                           kernel_initializer=initializer)
     output = layer(output)
     layer = K.layers.Dense(units=84,
-                            activation='relu',
-                            kernel_initializer=initializer)
+                           activation='relu',
+                           kernel_initializer=initializer)
     output = layer(output)
     # here pass 'softmax' activation to the model
     # prior to compiling/training the model (not recommended)
     layer = K.layers.Dense(units=10,
-                            activation='softmax',
-                            kernel_initializer=initializer)
+                           activation='softmax',
+                           kernel_initializer=initializer)
     output = layer(output)
 
     # instantiate a model from the Model class
