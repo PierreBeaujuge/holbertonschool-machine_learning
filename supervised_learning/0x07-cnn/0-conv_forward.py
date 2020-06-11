@@ -54,15 +54,5 @@ def conv_forward(A_prev, W, b, activation, padding="same", stride=(1, 1)):
                     ] * W[:, :, :, k],
                     axis=(1, 2, 3)
                 ) + b[0, 0, 0, k]
-                # output[
-                #     image_num,
-                #     i,
-                #     j,
-                #     k
-                # ] = activation(output[
-                #     image_num,
-                #     i,
-                #     j,
-                #     k])
     output = activation(output)
     return output
