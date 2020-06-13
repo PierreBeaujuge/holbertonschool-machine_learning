@@ -46,14 +46,14 @@ def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mode='max'):
                             # define a mask weighted by the number of
                             # elements in the pooling layer (kh * kw)
                             mask = np.ones(shape=window.shape)
-                            mask /= kh * kw
+                            mask /= (kh * kw)
                             # print(mask)
                         dA_prev[
                             img_num,
                             i * sh: i * sh + kh,
                             j * sw: j * sw + kw,
                             k
-                        ] = mask * dA[
+                        ] += mask * dA[
                             img_num,
                             i,
                             j,
