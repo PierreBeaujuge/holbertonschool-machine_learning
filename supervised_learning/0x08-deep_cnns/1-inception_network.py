@@ -61,13 +61,14 @@ def inception_network():
     output_14 = inception_block(output_13, [256, 160, 320, 32, 128, 128])
     output_15 = inception_block(output_14, [384, 192, 384, 48, 128, 128])
     layer_16 = K.layers.AvgPool2D(pool_size=7,
-                                         padding='same',
-                                         strides=None)
+                                  padding='same',
+                                  strides=None)
     output_16 = layer_16(output_15)
 
     layer_17 = K.layers.Dropout(0.4)
     output_17 = layer_17(output_16)
 
+    # output_17 is now 1 x 1: no need to flatten the data
     # layer_18 = K.layers.Flatten()
     # output = layer_18(output_17)
 
@@ -81,14 +82,5 @@ def inception_network():
 
     # instantiate a model from the Model class
     model = K.models.Model(inputs=X, outputs=output_18)
-
-    # # compile the model
-    # # here, define loss from activated ouput
-    # # by default, tf.keras.losses.categorical_crossentropy assumes that
-    # # y_pred encodes a probability distribution (from_logits=False)
-    # # However - Using from_logits=True is more numerically stable
-    # model.compile(optimizer=K.optimizers.Adam(),
-    #               loss='categorical_crossentropy',
-    #               metrics=['accuracy'])
 
     return model
