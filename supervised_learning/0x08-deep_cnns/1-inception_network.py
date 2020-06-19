@@ -61,8 +61,8 @@ def inception_network():
     output_14 = inception_block(output_13, [256, 160, 320, 32, 128, 128])
     output_15 = inception_block(output_14, [384, 192, 384, 48, 128, 128])
     layer_16 = K.layers.AvgPool2D(pool_size=7,
-                                  padding='same',
-                                  strides=1)
+                                         padding='same',
+                                         strides=None)
     output_16 = layer_16(output_15)
 
     layer_17 = K.layers.Dropout(0.4)
