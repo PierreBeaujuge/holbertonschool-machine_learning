@@ -51,7 +51,7 @@ def densenet121(growth_rate=32, compression=1.0):
                                  strides=None)
     output_3 = layer_3(db4_output[0])
 
-    # no need to flatten here (for some reason)
+    # AvgPool2D reduced data to 1 x 1: no need to flatten here
     # flatten = K.layers.Flatten()
     # output_3 = flatten(output_3)
 
@@ -65,14 +65,5 @@ def densenet121(growth_rate=32, compression=1.0):
 
     # instantiate a model from the Model class
     model = K.models.Model(inputs=X, outputs=output_4)
-
-    # # compile the model
-    # # here, define loss from activated ouput
-    # # by default, tf.keras.losses.categorical_crossentropy assumes that
-    # # y_pred encodes a probability distribution (from_logits=False)
-    # # However - Using from_logits=True is more numerically stable
-    # model.compile(optimizer=K.optimizers.Adam(),
-    #               loss='categorical_crossentropy',
-    #               metrics=['accuracy'])
 
     return model
