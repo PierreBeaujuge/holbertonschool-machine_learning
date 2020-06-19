@@ -55,7 +55,7 @@ def projection_block(A_prev, filters, s=2):
     F12_bypass = bypass_norm(F12_bypass)
 
     # add input (bypass connection) and output
-    output = K.layers.Add()([F12_bypass, F12_output])
+    output = K.layers.Add()([F12_output, F12_bypass])
     # activate the combined output
     output = K.layers.Activation('relu')(output)
 
