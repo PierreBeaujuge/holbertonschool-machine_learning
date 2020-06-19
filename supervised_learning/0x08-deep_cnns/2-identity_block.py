@@ -44,7 +44,7 @@ def identity_block(A_prev, filters):
     F12_output = F12_norm(F12_output)
 
     # add input (residual connection) and output
-    output = K.layers.Add()([A_prev, F12_output])
+    output = K.layers.Add()([F12_output, A_prev])
     # activate the combined output
     output = K.layers.Activation('relu')(output)
 
