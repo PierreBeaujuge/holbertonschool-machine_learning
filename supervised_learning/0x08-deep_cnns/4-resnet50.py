@@ -56,10 +56,7 @@ def resnet50():
                                   strides=None)
     output_6 = avg_pool(output_5)
 
-    # layer_17 = K.layers.Dropout(0.4)
-    # output_17 = layer_17(output_16)
-
-    # no need to flatten here (for some reason)
+    # AvgPool2D reduced data to 1 x 1: no need to flatten here
     # flatten = K.layers.Flatten()
     # output_6 = flatten(output_6)
 
@@ -73,14 +70,5 @@ def resnet50():
 
     # instantiate a model from the Model class
     model = K.models.Model(inputs=X, outputs=output_7)
-
-    # # compile the model
-    # # here, define loss from activated ouput
-    # # by default, tf.keras.losses.categorical_crossentropy assumes that
-    # # y_pred encodes a probability distribution (from_logits=False)
-    # # However - Using from_logits=True is more numerically stable
-    # model.compile(optimizer=K.optimizers.Adam(),
-    #               loss='categorical_crossentropy',
-    #               metrics=['accuracy'])
 
     return model
