@@ -172,7 +172,7 @@ class NST:
 
         return result
 
-    def ggenerate_features(self):
+    def generate_features(self):
         """function that extracts the style and content features
         used to calculate the neural style cost"""
 
