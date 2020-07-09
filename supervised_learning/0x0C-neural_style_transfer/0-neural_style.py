@@ -60,10 +60,6 @@ class NST:
 
         # print("image:", type(image[0][0][0])) <-np.int, [0..255]
 
-        # Normalize image pixels to range [0..1]:
-        image = image / 255
-        # print("image:", type(image[0][0][0])) <-np.float, [0..1]
-
         # Impose image rescaling such that largest side is 512 pixels
         max_dim = 512
         # print("max_dim:", type(max_dim)) <-int
