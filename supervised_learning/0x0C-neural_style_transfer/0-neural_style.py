@@ -96,6 +96,10 @@ class NST:
         # print("Before clipping:", image)
         # print(image.shape)
 
+        # Normalize image pixels to range [0..1]:
+        image = image / 255
+        # print("image:", type(image[0][0][0])) <-np.float, [0..1]
+
         # Since this is a float image, keep the pixel values between 0 and 1:
         # clip data to the valid range for plt.imshow with RGB data
         # ([0..1] for floats) <- required/requested by the script
