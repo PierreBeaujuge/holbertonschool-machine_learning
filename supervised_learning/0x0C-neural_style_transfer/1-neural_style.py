@@ -133,6 +133,7 @@ class NST:
         # Extract the output feature templates of the desired layers
         style_outputs = [vgg.get_layer(name).output
                          for name in self.style_layers]
+        content_output = vgg.get_layer(self.content_layer).output
         # Combine the output feature templates by layer concatenation
         outputs = style_outputs + [content_output]
         # Instantiate the custom/recomposed model using the outputs list
