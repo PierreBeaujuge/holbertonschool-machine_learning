@@ -45,6 +45,9 @@ class NST:
         # Weight for style cost
         self.beta = beta
 
+        # Load the VGG19 model for the cost calculation
+        self.load_model()
+
     @staticmethod
     def scale_image(image):
         """
