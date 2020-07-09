@@ -48,6 +48,9 @@ class NST:
         # Load the VGG19 model for the cost calculation
         self.load_model()
 
+        # Instantiate the gram_style_features and content_feature attributes
+        self.generate_features()
+
     @staticmethod
     def scale_image(image):
         """
