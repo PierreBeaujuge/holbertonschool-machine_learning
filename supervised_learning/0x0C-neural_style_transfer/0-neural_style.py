@@ -17,20 +17,20 @@ class NST:
         """define and initialize variables"""
 
         # After eager execution is enabled, operations are executed as they are
-        # defined and Tensor objects hold concrete values, which can be accessed
-        # as numpy.ndarray`s through the numpy() method.
+        # defined and Tensor objects hold concrete values, which can be
+        # accessed as numpy.ndarray`s through the numpy() method.
         tf.enable_eager_execution()
 
-        if (not isinstance(style_image, np.ndarray) or
-            style_image.ndim != 3 or
-            style_image.shape[-1] != 3):
-            raise TypeError(
-                "style_image must be a numpy.ndarray with shape (h, w, 3)")
-        if (not isinstance(content_image, np.ndarray) or
-            content_image.ndim != 3 or
-            content_image.shape[-1] != 3):
-            raise TypeError(
-                "content_image must be a numpy.ndarray with shape (h, w, 3)")
+        err = "style_image must be a numpy.ndarray with shape (h, w, 3)"
+        if not isinstance(style_image, np.ndarray):
+            raise TypeError(err)
+        if style_image.ndim != 3 or style_image.shape[-1] != 3:
+            raise TypeError(err)
+        err = "content_image must be a numpy.ndarray with shape (h, w, 3)"
+        if not isinstance(content_image, np.ndarray):
+            raise TypeError(err)
+        if content_image.ndim != 3 or content_image.shape[-1] != 3:
+            raise TypeError(err)
         if not isinstance(alpha, (int, float)) or alpha < 0:
             raise TypeError("alpha must be a non-negative number")
         if not isinstance(beta, (int, float)) or beta < 0:
@@ -52,11 +52,11 @@ class NST:
         between 0 and 1 and its largest side is 512 pixels
         """
 
-        if (not isinstance(image, np.ndarray) or
-            image.ndim != 3 or
-            image.shape[-1] != 3):
-            raise TypeError(
-                "image must be a numpy.ndarray with shape (h, w, 3)")
+        err = "image must be a numpy.ndarray with shape (h, w, 3)"
+        if not isinstance(image, np.ndarray):
+            raise TypeError(err)
+        if image.ndim != 3 or image.shape[-1] != 3:
+            raise TypeError(err)
 
         # print("image:", type(image[0][0][0])) <-np.int, [0..255]
 
@@ -89,7 +89,10 @@ class NST:
 
         # Resize image using bicubic interpolation, concurrently
         # converting np.ndarray to tf.tensor with shape (1, h_new, w_new, 3)
-        image = tf.image.resize_bicubic(image, new_shape)
+        # In Google Colab (tf 2.0):
+        # image = tf.image.resize_bicubic(image, new_shape)
+        # With tf 1.2:
+        image = tf.image.resize_bicubic(image, new_shape, align_corners=False)
         # print("Before clipping:", image)
         # print(image.shape)
 
