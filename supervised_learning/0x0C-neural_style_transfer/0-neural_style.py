@@ -21,16 +21,16 @@ class NST:
         # accessed as numpy.ndarray`s through the numpy() method.
         tf.enable_eager_execution()
 
-        err = "style_image must be a numpy.ndarray with shape (h, w, 3)"
+        err_1 = "style_image must be a numpy.ndarray with shape (h, w, 3)"
         if not isinstance(style_image, np.ndarray):
-            raise TypeError(err)
+            raise TypeError(err_1)
         if style_image.ndim != 3 or style_image.shape[-1] != 3:
-            raise TypeError(err)
-        err = "content_image must be a numpy.ndarray with shape (h, w, 3)"
+            raise TypeError(err_1)
+        err_2 = "content_image must be a numpy.ndarray with shape (h, w, 3)"
         if not isinstance(content_image, np.ndarray):
-            raise TypeError(err)
+            raise TypeError(err_2)
         if content_image.ndim != 3 or content_image.shape[-1] != 3:
-            raise TypeError(err)
+            raise TypeError(err_2)
         if not isinstance(alpha, (int, float)) or alpha < 0:
             raise TypeError("alpha must be a non-negative number")
         if not isinstance(beta, (int, float)) or beta < 0:
@@ -92,7 +92,7 @@ class NST:
         # In Google Colab (tf 2.0):
         # image = tf.image.resize(image, (new_h, new_w), method='bicubic')
         # With tf 1.2:
-        image = tf.image.resize(image, new_shape, method=ResizeMethod.BICUBIC)
+        image = tf.image.resize_bicubic(image, new_shape)
         # print("Before clipping:", image)
         # print(image.shape)
 
