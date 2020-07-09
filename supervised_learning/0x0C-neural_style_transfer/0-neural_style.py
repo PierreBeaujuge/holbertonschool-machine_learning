@@ -90,9 +90,9 @@ class NST:
         # Resize image using bicubic interpolation, concurrently
         # converting np.ndarray to tf.tensor with shape (1, h_new, w_new, 3)
         # In Google Colab (tf 2.0):
-        # image = tf.image.resize_bicubic(image, new_shape)
+        # image = tf.image.resize(image, (new_h, new_w), method='bicubic')
         # With tf 1.2:
-        image = tf.image.resize_bicubic(image, new_shape, align_corners=False)
+        image = tf.image.resize(image, new_shape, method=ResizeMethod.BICUBIC)
         # print("Before clipping:", image)
         # print(image.shape)
 
