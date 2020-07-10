@@ -157,7 +157,9 @@ class NST:
         err = "input_layer must be a tensor of rank 4"
         if not isinstance(input_layer, (tf.Tensor, tf.Variable)):
             raise TypeError(err)
-        if input_layer.ndim != 4:
+        # if input_layer.ndim != 4:
+        # note: tf.Variable does not have a "ndim" attribute! (error raised)
+        if len(input_layer.shape) != 4:
             raise TypeError(err)
 
         # Compute the outer product of the input tensor (feature map)
