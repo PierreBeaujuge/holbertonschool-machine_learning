@@ -200,33 +200,27 @@ class NST:
         # Content layer output of the content_image
         self.content_feature = content_ouput
 
-    def style_cost(self, style_outputs):
-        """function that calculates the style cost for all
-        style_output layers"""
+    def layer_style_cost(self, style_output, gram_target):
+        """function that calculates the style cost for a single
+        style_output layer"""
 
-        err = "style_outputs must be a list with a length of {}".format(
-            len(self.style_layers))
-        if not isinstance(style_outputs, list):
-            raise TypeError(err)
-        if len(self.style_layers) != len(style_outputs):
-            raise TypeError(err)
+        # Number of channels in style_output
+        c = style_output.shape[-1]
+        err_1 = "style_output must be a tensor of rank 4"
+        if not isinstance(style_output, (tf.Tensor, tf.Variable)):
+            raise TypeError(err_1)
+        if style_output.ndim != 4:
+            raise TypeError(err_1)
+        err_2 = ("gram_target must be a tensor of shape [1, {}, {}]".
+                 format(c, c))
+        if not isinstance(gram_target, (tf.Tensor, tf.Variable)):
+            raise TypeError(err_2)
+        if gram_target.shape != (1, c, c):
+            raise TypeError(err_2)
 
-        # Reminders:
-        # style_layers is a list of name strings
-        # style_outputs is a list of tensors
-
-        style_costs = []
-        # each layer should be weighted evenly with all weights summing to 1
-        weight = 1 / len(self.style_layers)
-
-        for style_output, gram_target in zip(
-                style_outputs, self.gram_style_features):
-
-            layer_style_cost = self.layer_style_cost(style_output, gram_target)
-            weighted_layer_style_cost = weight * layer_style_cost
-            style_costs.append(weighted_layer_style_cost)
-
-        # Add all the tensor values from the list
-        style_cost = tf.add_n(style_costs)
+        # Compute the gram matrix of the style_output layer
+        gram_style = self.gram_matrix(style_output)
+        # Calculate the mean squared error between gram_style and gram_target
+        style_cost = tf.reduce_mean(tf.square(gram_style - gram_target))
 
         return style_cost
