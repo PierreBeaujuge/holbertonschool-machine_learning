@@ -265,8 +265,8 @@ class NST:
 
         # Convert content_output to a tensor of 4 dimensions
         # to match the shape of self.content_feature
-        if content_output.ndim == 3:
-            content_output = content_output[tf.newaxis, ...]
+        # if content_output.ndim == 3:
+        #     content_output = content_output[tf.newaxis, ...]
         # print("content_output.shape:", content_output.shape)
 
         err = "content_output must be a tensor of shape {}".format(
