@@ -2,8 +2,8 @@
 """
 Process Outputs
 """
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 
 
 class Yolo:
@@ -98,8 +98,12 @@ class Yolo:
             # (416 x 0.4, 416 x 0.6).
             anchor_width = self.anchors[i, :, 0]
             anchor_height = self.anchors[i, :, 1]
-            image_width = self.model.input.shape[1]
-            image_height = self.model.input.shape[2]
+            # In tf 2.0, on Google Colab:
+            # image_width = self.model.input.shape[1]
+            # image_height = self.model.input.shape[2]
+            # But in tf 1.2 (see Stackoverflow):
+            image_width = self.model.input.shape[1].value
+            image_height = self.model.input.shape[2].value
             b_w = (anchor_width * np.exp(t_w)) / image_width
             b_h = (anchor_height * np.exp(t_h)) / image_height
 
