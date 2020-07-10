@@ -211,7 +211,7 @@ class NST:
         err_1 = "style_output must be a tensor of rank 4"
         if not isinstance(style_output, (tf.Tensor, tf.Variable)):
             raise TypeError(err_1)
-        if style_output.ndim != 4:
+        if len(style_output.shape) != 4:
             raise TypeError(err_1)
         err_2 = ("gram_target must be a tensor of shape [1, {}, {}]".
                  format(c, c))
