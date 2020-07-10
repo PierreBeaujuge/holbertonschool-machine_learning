@@ -381,8 +381,12 @@ class Yolo:
         pimages = []
         image_shapes = []
 
-        input_width = self.model.input.shape[1]
-        input_height = self.model.input.shape[2]
+        # In tf 2.0, on Google Colab:
+        # image_width = self.model.input.shape[1]
+        # image_height = self.model.input.shape[2]
+        # But in tf 1.2 (see Stackoverflow):
+        input_width = self.model.input.shape[1].value
+        input_height = self.model.input.shape[2].value
 
         for image in images:
             image_shapes.append(np.array([image.shape[0], image.shape[1]]))
