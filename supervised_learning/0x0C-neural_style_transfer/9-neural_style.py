@@ -404,13 +404,13 @@ class NST:
                       format(i, total_cost, content_cost, style_cost))
 
             # Backpropagation pass
-            # if i != iterations:
-            # The generated_image (tensor, float image) is updated
-            optimizer.apply_gradients([(gradients, generated_image)])
-            # Then clipped to stay in the range [0..1]
-            clipped_image = tf.clip_by_value(
-                generated_image, clip_value_min=0, clip_value_max=1)
-            generated_image.assign(clipped_image)
+            if i != iterations:
+                # The generated_image (tensor, float image) is updated
+                optimizer.apply_gradients([(gradients, generated_image)])
+                # Then clipped to stay in the range [0..1]
+                clipped_image = tf.clip_by_value(
+                    generated_image, clip_value_min=0, clip_value_max=1)
+                generated_image.assign(clipped_image)
 
             # Update prev_total_cost (best cost) and prev_image (best image)
             if total_cost <= prev_total_cost:
