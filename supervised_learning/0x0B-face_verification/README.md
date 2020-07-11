@@ -1,1 +1,0 @@
-Learn and practice Face Verification in Machine Learning
