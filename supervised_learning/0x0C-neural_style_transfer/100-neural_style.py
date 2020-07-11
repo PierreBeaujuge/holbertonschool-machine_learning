@@ -13,7 +13,7 @@ class NST:
                     'block4_conv1', 'block5_conv1']
     content_layer = 'block5_conv2'
 
-    def __init__(self, style_image, content_image, alpha=1e4, beta=1):
+    def __init__(self, style_image, content_image, alpha=1e4, beta=1, var=10):
         """define and initialize variables"""
 
         # After eager execution is enabled, operations are executed as they are
@@ -44,6 +44,8 @@ class NST:
         self.alpha = alpha
         # Weight for style cost
         self.beta = beta
+        # Weight for the variational cost
+        self.var = var
 
         # Load the VGG19 model for the cost calculation
         self.load_model()
@@ -316,9 +318,14 @@ class NST:
         style_cost = self.style_cost(style_outputs)
         content_cost = self.content_cost(content_ouput)
 
-        total_cost = (self.alpha * content_cost + self.beta * style_cost)
+        # Evaluate the variational cost from the generated_image
+        # in a call to variational_cost()
+        var_cost = self.variational_cost(generated_image)
 
-        return (total_cost, content_cost, style_cost)
+        total_cost = (self.alpha * content_cost + self.beta * style_cost
+                      + self.var * var_cost)
+
+        return (total_cost, content_cost, style_cost, var_cost)
 
     def compute_grads(self, generated_image):
         """function that computes the gradients for the generated image"""
@@ -339,12 +346,12 @@ class NST:
         with tf.GradientTape() as tape:
             # Calculate the loss in a call to total_cost()
             loss = self.total_cost(generated_image)
-            total_cost, content_cost, style_cost = loss
+            total_cost, content_cost, style_cost, var_cost = loss
 
         # Infer the gradients passing in the loss and the generated_image
         gradients = tape.gradient(total_cost, generated_image)
 
-        return (gradients, total_cost, content_cost, style_cost)
+        return (gradients, total_cost, content_cost, style_cost, var_cost)
 
     def generate_image(self, iterations=1000, step=None, lr=0.01,
                        beta1=0.9, beta2=0.99):
@@ -396,12 +403,14 @@ class NST:
             # Compute the gradients and return the various costs
             # in a call to compute_grads()
             computed = self.compute_grads(generated_image)
-            gradients, total_cost, content_cost, style_cost = computed
+            (gradients, total_cost, content_cost,
+             style_cost, var_cost) = computed
 
             # Print the costs at every "step"
             if i % step == 0 or i == iterations:
-                print("Cost at iteration {}: {}, content {}, style {}".
-                      format(i, total_cost, content_cost, style_cost))
+                strg = "Cost at iteration {}: {}, content {}, style {}, var {}"
+                print(strg.format(i, total_cost, content_cost,
+                                  style_cost, var_cost))
 
             # Backpropagation pass
             if i != iterations:
@@ -425,3 +434,18 @@ class NST:
         generated_image = prev_image[0].numpy()
 
         return (generated_image, cost)
+
+    @staticmethod
+    def variational_cost(generated_image):
+        """function that calculates the variational cost
+        for the generated image"""
+
+        # The following standard tf implementation returns an numpy array
+        # of this type: array([149419.88], dtype=float32):
+        # loss = tf.image.total_variation(generated_image).numpy()
+        # This returns a tf tensor of this type
+        # tf.Tensor([8765200.], shape=(1,), dtype=float32):
+        loss = tf.image.total_variation(generated_image)[0]
+        # print("loss:", loss)
+
+        return loss
