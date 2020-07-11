@@ -322,7 +322,8 @@ class NST:
         # in a call to variational_cost()
         var_cost = self.variational_cost(generated_image)
 
-        total_cost = (self.alpha * content_cost + self.beta * style_cost + self.var * var_cost)
+        total_cost = (self.alpha * content_cost + self.beta * style_cost
+                      + self.var * var_cost)
 
         return (total_cost, content_cost, style_cost, var_cost)
 
@@ -402,11 +403,14 @@ class NST:
             # Compute the gradients and return the various costs
             # in a call to compute_grads()
             computed = self.compute_grads(generated_image)
-            gradients, total_cost, content_cost, style_cost, var_cost = computed
+            (gradients, total_cost, content_cost,
+             style_cost, var_cost) = computed
 
             # Print the costs at every "step"
             if i % step == 0 or i == iterations:
-                print("Cost at iteration {}: {}, content {}, style {}, var {}".format(i, total_cost, content_cost, style_cost, var_cost))
+                msg = "Cost at iteration {}: {}, content {}, style {}, var {}"
+                print(msg.format(
+                    i, total_cost, content_cost, style_cost, var_cost))
 
             # Backpropagation pass
             if i != iterations:
