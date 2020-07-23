@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Definiteness
-"""
+"""Advanced Linear Algebra"""
 import numpy as np
 
 

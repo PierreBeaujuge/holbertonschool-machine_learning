@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Advanced Linear Algebra"""
 
 
 def determinant(matrix):
