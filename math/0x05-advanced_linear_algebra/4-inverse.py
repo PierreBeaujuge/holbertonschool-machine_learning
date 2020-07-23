@@ -172,7 +172,7 @@ def inverse(matrix):
         return None
 
     # Multiply the adjugate by 1 / determinant:
-    inverse = [[1 / det * float(element) for element in sublist]
+    inverse = [[float(element) / det for element in sublist]
                for sublist in adj]
 
     return inverse
