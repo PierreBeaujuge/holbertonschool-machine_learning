@@ -58,7 +58,8 @@ class MultiNormal:
         if x.shape[1] != 1 or x.shape[0] != d:
             raise ValueError(err_2)
 
-        A = 1.0 / ((2 * np.pi) ** (d / 2) * np.linalg.det(self.cov) ** 0.5)
+        # A = 1.0 / ((2 * np.pi) ** (d / 2) * np.linalg.det(self.cov) ** 0.5)
+        A = 1.0 / np.sqrt(((2 * np.pi) ** d) * np.linalg.det(self.cov))
         B = np.exp(-0.5 * np.linalg.multi_dot([(x - self.mean).T,
                                                np.linalg.inv(self.cov),
                                                (x - self.mean)]))
