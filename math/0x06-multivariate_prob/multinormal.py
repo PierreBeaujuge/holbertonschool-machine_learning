@@ -20,7 +20,7 @@ class MultiNormal:
             raise TypeError(err_1)
 
         err_2 = "data must contain multiple data points"
-        if data.shape[0] < 2:
+        if data.shape[1] < 2:
             raise ValueError(err_2)
 
         self.mean, self.cov = self.mean_cov(data)
