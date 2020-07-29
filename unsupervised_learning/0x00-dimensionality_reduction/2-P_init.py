@@ -19,6 +19,8 @@ def P_init(X, perplexity):
     # exploit: (a - b) ** 2 = a ** 2 - 2ab + b ** 2
     D = (np.sum(X ** 2, axis=1) - 2 * np.matmul(X, X.T) +
          np.sum(X ** 2, axis=1)[..., np.newaxis])
+    # Set zeros across the matrix diagonal:
+    D[[range(n)], range(n)] = 0
 
     # Initialize the array of P affinities:
     P = np.zeros((n, n))
