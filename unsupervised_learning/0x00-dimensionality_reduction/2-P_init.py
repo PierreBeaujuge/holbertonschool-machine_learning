@@ -22,7 +22,7 @@ def P_init(X, perplexity):
     # Taking the square of the Frobenius norm also works:
     # D = (np.linalg.norm(X, axis=1) ** 2 - 2 * np.matmul(X, X.T) +
     #      (np.linalg.norm(X, axis=1) ** 2)[..., np.newaxis])
-    
+
     # Note: the distance from one point to itself should be 0;
     # here these distances live in the diagonal -> ensure 0s
     # Set zeros across the matrix diagonal:
