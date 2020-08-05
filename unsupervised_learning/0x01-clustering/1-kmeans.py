@@ -94,7 +94,8 @@ def kmeans(X, k, iterations=1000):
         # r(ij) = 1 if argmin(dist**2) == j
         # -> point i assigned to centroid k
         # otherwise r(ij) = 0 -> ignore point i wrt centroid k
-        clss = np.argmin(dist ** 2, axis=1)
+        # clss = np.argmin(dist ** 2, axis=1)
+        clss = np.argmin(dist, axis=1)
         # print("centroid indices:", clss)
         # print("clss.shape:", clss.shape)
         # Note: here, clss is a 1D array of the unique centroid index
