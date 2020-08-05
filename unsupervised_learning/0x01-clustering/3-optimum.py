@@ -36,24 +36,23 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
     # the smallest cluster size for each cluster size
     d_vars = []
 
-    # Iterate over the number of clusters under consideration
-    for k in range(kmin, kmax+1):
+    try:
+        # Iterate over the number of clusters under consideration
+        for k in range(kmin, kmax+1):
 
-        # Compute the cluster centroids C (means; coordinates and
-        # the 1D array of data point-centroid assignement in a call to kmeans()
-        C, clss = kmeans(X, k, iterations)
-        results.append((C, clss))
+            # Compute the cluster centroids C (means; coordinates and the
+            # 1D array of data point-centroid assignement in a call to kmeans()
+            C, clss = kmeans(X, k, iterations)
+            results.append((C, clss))
 
-        # Compute the corresponding total intra-cluster variance
-        var = variance(X, C)
-        # var = None
-        if var is None:
-            return None, None
-        if not isinstance(var, (float, int)):
-            return None, None
-        variances.append(var)
+            # Compute the corresponding total intra-cluster variance
+            var = variance(X, C)
+            variances.append(var)
 
-    for var in variances:
-        d_vars.append(variances[0] - var)
+        for var in variances:
+            d_vars.append(variances[0] - var)
+
+    except Exception:
+        return None, None
 
     return results, d_vars
