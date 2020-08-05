@@ -46,7 +46,10 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
 
         # Compute the corresponding total intra-cluster variance
         var = variance(X, C)
+        # var = None
         if var is None:
+            return None, None
+        if not isinstance(var, (float, int)):
             return None, None
         variances.append(var)
 
