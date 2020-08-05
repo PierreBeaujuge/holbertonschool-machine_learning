@@ -34,7 +34,7 @@ def kmeans(X, k, iterations=1000):
     # Initialize the cluster centroids (C <- centroid "means")
     C = initialize(X, k)
 
-    if type(C) is None:
+    if C is None:
         return None, None
     if not isinstance(iterations, int) or iterations <= 0:
         return None, None
