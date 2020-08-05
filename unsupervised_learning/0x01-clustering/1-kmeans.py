@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-2-variance.py
+1-kmeans.py
 """
 import numpy as np
 

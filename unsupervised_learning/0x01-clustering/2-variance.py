@@ -8,14 +8,15 @@ import numpy as np
 def initialize(X, k):
     """function that initializes cluster centroids for K-means"""
 
+    if not isinstance(X, np.ndarray) or X.ndim != 2:
+        return None
+
     # n: number of dada points
     # d: dimension of each data point
     n, d = X.shape
     # print(X.shape)
     # print(X)
 
-    if not isinstance(X, np.ndarray) or X.ndim != 2:
-        return None
     if not isinstance(k, int) or k <= 0 or k >= n:
         return None
 
@@ -33,7 +34,7 @@ def kmeans(X, k, iterations=1000):
     # Initialize the cluster centroids (C <- centroid "means")
     C = initialize(X, k)
 
-    if type(C) is None:
+    if C is None:
         return None, None
     if not isinstance(iterations, int) or iterations <= 0:
         return None, None
@@ -130,6 +131,12 @@ def kmeans(X, k, iterations=1000):
                 C[j] = initialize(X, 1)
             else:
                 C[j] = np.mean(X[indices], axis=0)
+
+    # Update clss before returning C, clss
+    Cv = np.tile(C, (n, 1))
+    Cv = Cv.reshape(n, k, d)
+    dist = np.linalg.norm(Xv - Cv, axis=2)
+    clss = np.argmin(dist ** 2, axis=1)
 
     return C, clss
 
