@@ -38,7 +38,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
         d_vars = []
 
         # Iterate over the number of clusters under consideration
-        for k in range(kmin, kmax+1):
+        for k in range(kmin, kmax + 1):
 
             # Compute the cluster centroids C (means; coordinates and the
             # 1D array of data point-centroid assignement in a call to kmeans()
@@ -49,8 +49,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
             var = variance(X, C)
             variances.append(var)
 
-        for var in variances:
-            d_vars.append(variances[0] - var)
+        d_vars = [(variances[0] - var) for var in variances]
 
         return results, d_vars
 
