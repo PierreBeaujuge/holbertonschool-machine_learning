@@ -132,4 +132,10 @@ def kmeans(X, k, iterations=1000):
             else:
                 C[j] = np.mean(X[indices], axis=0)
 
+    # Update clss before returning C, clss
+    Cv = np.tile(C, (n, 1))
+    Cv = Cv.reshape(n, k, d)
+    dist = np.linalg.norm(Xv - Cv, axis=2)
+    clss = np.argmin(dist ** 2, axis=1)
+
     return C, clss
