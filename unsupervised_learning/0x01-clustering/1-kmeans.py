@@ -52,9 +52,9 @@ def kmeans(X, k, iterations=1000):
         # print("iteration:", iteration)
 
         # Maintain a deep copy of C
-        C_prev = np.array([x for x in C])
-        # Another alternative:
-        # C_prev = np.copy(C)
+        # C_prev = np.array([x for x in C])
+        # Another alternative (removes for loop):
+        C_prev = np.copy(C)
 
         # OPTION 1: FOR LOOPS
 
