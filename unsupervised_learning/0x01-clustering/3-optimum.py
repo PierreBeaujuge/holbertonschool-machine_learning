@@ -49,6 +49,6 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
         variances.append(var)
 
     for var in variances:
-        d_vars.append(variances[0] - var)
+        d_vars.append(np.abs(variances[0] - var))
 
     return results, d_vars
