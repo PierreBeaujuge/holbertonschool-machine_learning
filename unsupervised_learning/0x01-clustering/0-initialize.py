@@ -17,7 +17,7 @@ def initialize(X, k):
     # print(X.shape)
     # print(X)
 
-    if not isinstance(k, int) or k <= 0 or k >= n:
+    if not isinstance(k, int) or k <= 0 or k > n:
         return None
 
     # Sample k centroids from a random.uniform distribution;
