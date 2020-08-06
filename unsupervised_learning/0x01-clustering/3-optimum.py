@@ -32,6 +32,9 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
     results = []
     # Initialize list of total intra-cluster variances
     variances = []
+    # Initialize the list of difference in variance from
+    # the smallest cluster size for each cluster size
+    d_vars = []
 
     # Iterate over the number of clusters under consideration
     for k in range(kmin, kmax + 1):
@@ -45,9 +48,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
         var = variance(X, C)
         variances.append(var)
 
-    # Compute the list of difference in variance from
-    # the smallest cluster size for each cluster size
-    # Note: do NOT use append() -> flags raised from checker edge cases
-    d_vars = [(variances[0] - var) for var in variances]
+    for var in variances:
+        d_vars.append(variances[0] - var)
 
     return results, d_vars
