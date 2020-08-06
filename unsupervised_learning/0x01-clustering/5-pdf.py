@@ -28,10 +28,12 @@ def pdf(X, m, S):
 
     # Compute the pdf
     A = 1.0 / np.sqrt(((2 * np.pi) ** d) * np.linalg.det(S))
-    B = np.exp(-0.5 * np.linalg.multi_dot([(X - m),
+    B = np.exp(-0.5 * np.diag(np.linalg.multi_dot([(X - m),
                                            np.linalg.inv(S),
-                                           (X - m).T]))
+                                           (X - m).T])))
     pdf = A * B
 
     # All values in P should have a minimum value of 1e-300
     pdf = np.maximum(pdf, 1e-300)
+
+    return pdf
