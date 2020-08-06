@@ -43,13 +43,18 @@ def kmeans(X, k, iterations=1000):
     # d: dimension of each data point
     n, d = X.shape
 
-    # Initialize the cost/distortion function;
-    # defined as J = sum/n(sum/k(r(ij)*||x(i) - c(j)||**2))
-    J = np.inf
+    # # Initialize the cost/distortion function;
+    # # defined as J = sum/n(sum/k(r(ij)*||x(i) - c(j)||**2))
+    # J = np.inf
 
     # Iterate over iterations
     for iteration in range(iterations):
         # print("iteration:", iteration)
+
+        # Maintain a deep copy of C
+        C_prev = np.array([x for x in C])
+        # Another alternative:
+        # C_prev = np.copy(C)
 
         # OPTION 1: FOR LOOPS
 
@@ -101,24 +106,27 @@ def kmeans(X, k, iterations=1000):
         # to which each point in the dataset as been assigned (closest to);
         # the indices array is used in place of r(ij) in J evaluations
 
-        # Make a copy of the previous J value & reinitialize J
-        J_prev = J
-        # J = 0
+        # OPTION 1: EXIT CONDITION BASED ON J_prev == J
 
-        # Update J (summing over the n data points),
-        # based on the (shortest) distances inferred from "indices"
-        # From "for" loop:
-        # for i in range(n):
-        #     J += dist[i, clss[i]]
-        # From vectorization:
-        J = np.sum(dist[..., clss])
-        # Normalize J to the number of data points to
-        # reduce the computational cost (optional)
-        J /= n
-        # print("J:", J)
+        # # Make a copy of the previous J value & reinitialize J
+        # J_prev = J
+        # # J = 0
 
-        if np.any(J == J_prev):
-            return C, clss
+        # # Update J (summing over the n data points),
+        # # based on the (shortest) distances inferred from "indices"
+        # # From "for" loop:
+        # # for i in range(n):
+        # #     J += (dist[i, clss[i]] ** 2)
+        # # From vectorization:
+        # J = np.sum(dist[..., clss] ** 2)
+        # # Normalize J to the number of data points to
+        # # reduce the computational cost (optional)
+        # J /= n
+        # # print("J:", J)
+
+        # if J == J_prev:
+        #     # print("last iteration:", iteration)
+        #     return C, clss
 
         # Move the cluster centroids to the center (mean) of
         # the refined cluster by updating C (centroid coordinates)
@@ -131,6 +139,12 @@ def kmeans(X, k, iterations=1000):
                 C[j] = initialize(X, 1)
             else:
                 C[j] = np.mean(X[indices], axis=0)
+
+        # OPTION 2: EXIT CONDITION BASED ON C == C_prev
+
+        if (C == C_prev).all():
+            # print("last iteration:", iteration)
+            return C, clss
 
     # Update clss before returning C, clss
     Cv = np.tile(C, (n, 1))
