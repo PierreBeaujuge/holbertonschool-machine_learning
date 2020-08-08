@@ -2,7 +2,6 @@
 """
 12-agglomerative.py
 """
-import numpy as np
 import scipy.cluster.hierarchy
 import matplotlib.pyplot as plt
 

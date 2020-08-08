@@ -2,7 +2,6 @@
 """
 11-gmm.py
 """
-import numpy as np
 import sklearn.mixture
 
 

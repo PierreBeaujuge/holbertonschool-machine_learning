@@ -2,7 +2,6 @@
 """
 10-kmeans.py
 """
-import numpy as np
 import sklearn.cluster
 
 
