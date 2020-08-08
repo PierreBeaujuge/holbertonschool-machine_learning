@@ -48,8 +48,8 @@ def expectation(X, pi, m, S):
         # 1D array containing the priors for each cluster)
         g[i] = pi[i] * PDF
         # print("g[{}]:".format(i), g[i])
-    # Sum across the k clusters
-    sum_gis = np.sum(g, axis=0)
+    # Sum across the k clusters; set keepdims=True to adress checker reqs
+    sum_gis = np.sum(g, axis=0, keepdims=True)
     # print("sum_gis:", sum_gis)
     # print("sum_gis.shape:", sum_gis.shape)
     g = g / sum_gis
