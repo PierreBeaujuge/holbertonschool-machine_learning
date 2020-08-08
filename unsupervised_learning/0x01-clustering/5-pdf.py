@@ -28,12 +28,17 @@ def pdf(X, m, S):
 
     # Compute the pdf
     A = 1.0 / np.sqrt(((2 * np.pi) ** d) * np.linalg.det(S))
-    B = np.exp(-0.5 * np.diag(np.linalg.multi_dot([(X - m),
-                                                   np.linalg.inv(S),
-                                                   (X - m).T])))
-    pdf = A * B
+    # The following operation is computationally more expensives than need be:
+    # B = np.exp(-0.5 * np.diag(np.linalg.multi_dot([(X - m),
+    #                                                np.linalg.inv(S),
+    #                                                (X - m).T])))
+    # Instead minimize computation cost by applying the following operation:
+    # (provided for the optimization of this task)
+    M = np.matmul(np.linalg.inv(S), (X - m).T)
+    B = np.exp(-0.5 * np.sum((X - m).T * M, axis=0))
+    PDF = A * B
 
     # All values in P should have a minimum value of 1e-300
-    pdf = np.maximum(pdf, 1e-300)
+    PDF = np.maximum(PDF, 1e-300)
 
-    return pdf
+    return PDF
