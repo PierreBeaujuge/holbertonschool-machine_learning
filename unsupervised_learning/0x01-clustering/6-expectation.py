@@ -52,7 +52,7 @@ def expectation(X, pi, m, S):
     sum_gis = np.sum(g, axis=0, keepdims=True)
     # print("sum_gis:", sum_gis)
     # print("sum_gis.shape:", sum_gis.shape)
-    g = g / sum_gis
+    g /= sum_gis
     # print("g.shape:", g.shape)
 
     # Compute the likelihood
