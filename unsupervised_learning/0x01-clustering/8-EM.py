@@ -32,19 +32,17 @@ def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
     pi, m, S = initialize(X, k)
 
     # Iterate over iterations
-    for i in range(iterations):
+    for i in range(iterations + 1):
         if i != 0:
             lkhd_prev = lkhd
             pi, m, S = maximization(X, g)
         # Update g and lkhd
         g, lkhd = expectation(X, pi, m, S)
         if verbose:
-            if i % 10 == 0 or i == iterations - 1:
+            if i % 10 == 0 or i == iterations or abs(lkhd - lkhd_prev) <= tol:
                 print("Log Likelihood after {} iterations: {}".
                       format(i, lkhd.round(5)))
-            if abs(lkhd - lkhd_prev) <= tol:
-                print("Log Likelihood after {} iterations: {}".
-                      format(i, lkhd.round(5)))
-                break
+        if abs(lkhd - lkhd_prev) <= tol:
+            break
 
     return pi, m, S, g, lkhd
