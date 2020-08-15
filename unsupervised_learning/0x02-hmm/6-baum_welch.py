@@ -171,6 +171,9 @@ def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):
 
     a = Transition
     b = Emission
+    # Make deep copies of "a" and "b" for early stop
+    a_prev = np.copy(a)
+    b_prev = np.copy(b)
 
     # for iteration in range(iterations):
     for iteration in range(1000):
@@ -229,5 +232,13 @@ def baum_welch(Observations, Transition, Emission, Initial, iterations=1000):
             NUM[:, k] = np.sum(G[:, Observations == k], axis=1)
         b = NUM / DEN[..., np.newaxis]
         # print("b:", b, b.shape)
+
+        # Early stopping; exit condition on "a" and "b"
+        if np.all(np.isclose(a, a_prev)) or np.all(np.isclose(a, a_prev)):
+            return a, b
+
+        # Make deep copies of "a" and "b" (for early stop)
+        a_prev = np.copy(a)
+        b_prev = np.copy(b)
 
     return a, b
