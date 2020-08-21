@@ -43,7 +43,7 @@ class GaussianProcess:
 
         # K: covariance kernel matrix of shape (m, n)
         K = (self.sigma_f ** 2) * np.exp(-0.5 * (1 / (self.l ** 2)) * dist_sq)
-        print("K.shape:", K.shape)
+        # print("K.shape:", K.shape)
 
         return K
 
