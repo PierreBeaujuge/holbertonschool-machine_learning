@@ -83,10 +83,10 @@ class BayesianOptimization:
 
         if self.minimize is True:
             Y_opt = np.min(self.gp.Y)[np.newaxis]
-            index = np.argmin(self.gp.Y, axis=0)
+            index = np.argmin(self.gp.Y)
         else:
             Y_opt = np.max(self.gp.Y)[np.newaxis]
-            index = np.argmax(self.gp.Y, axis=0)
+            index = np.argmax(self.gp.Y)
         X_opt = self.gp.X[index]
 
         return X_opt, Y_opt
