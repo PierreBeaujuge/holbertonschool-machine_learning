@@ -2,7 +2,8 @@
 """
 1-sparse.py
 """
-import tensorflow.keras as K
+import tensorflow.keras as keras
+K = keras
 
 
 def sparse(input_dims, hidden_layers, latent_dims, lambtha):

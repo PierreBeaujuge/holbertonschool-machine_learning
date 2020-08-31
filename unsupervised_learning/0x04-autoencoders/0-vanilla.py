@@ -2,7 +2,8 @@
 """
 0-vanilla.py
 """
-import tensorflow.keras as K
+import tensorflow.keras as keras
+K = keras
 
 
 def autoencoder(input_dims, hidden_layers, latent_dims):
