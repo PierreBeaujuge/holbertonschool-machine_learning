@@ -3,10 +3,6 @@
 2-convolutional.py
 """
 import tensorflow.keras as keras
-from tensorflow.keras.layers import Input, Dense, Conv2D
-from tensorflow.keras.layers import MaxPooling2D, UpSampling2D
-from tensorflow.keras.models import Model
-from tensorflow.keras import regularizers
 K = keras
 
 
