@@ -17,9 +17,9 @@ def deep_rnn(rnn_cells, X, h_0):
     k = len(rnn_cells)
 
     # Initialize an array H that will take in h_next at every time step
-    H = np.zeros((t + 1, l, m, h))
+    H = np.zeros((t + 1, k, m, h))
     # Initialize an array Y that will take in y at every time step
-    Y = np.zeros((t, m, rnn_cells[l - 1].Wy.shape[1]))
+    Y = np.zeros((t, m, rnn_cells[k - 1].Wy.shape[1]))
 
     for i in range(t):
         for j in range(k):
