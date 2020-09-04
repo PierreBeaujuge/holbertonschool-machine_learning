@@ -1,0 +1,1 @@
+Learn and practice Generative Adverserial Network concepts
