@@ -18,7 +18,8 @@ class SelfAttention(tf.keras.layers.Layer):
     def call(self, s_prev, hidden_states):
         """function that builds the self-attention layer"""
 
-        s_prev_with_time_axis = tf.expand_dims(s_prev, 1)
+        # s_prev_with_time_axis = tf.expand_dims(s_prev, 1)
+        s_prev_with_time_axis = s_prev[:, tf.newaxis, :]
 
         W = self.W(s_prev_with_time_axis)
         U = self.U(hidden_states)
