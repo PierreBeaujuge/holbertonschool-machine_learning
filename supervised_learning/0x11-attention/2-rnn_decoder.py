@@ -31,7 +31,8 @@ class RNNDecoder(tf.keras.layers.Layer):
 
         # Instantiate a self_attention layer (takes arg: units)
         # s_prev: previous decoder hidden state; shape (batch, units)
-        self_attention = SelfAttention(self.units)
+        # self_attention = SelfAttention(self.units)
+        self_attention = SelfAttention(s_prev.shape[1])
 
         # Compute context vector and attention weights
         # s_prev: previous decoder hidden state; shape (batch, units)
