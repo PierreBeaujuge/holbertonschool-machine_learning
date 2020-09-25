@@ -12,8 +12,8 @@ class RNNDecoder(tf.keras.layers.Layer):
     def __init__(self, vocab, embedding, units, batch):
         """constructor"""
         super(RNNDecoder, self).__init__()
-        # self.batch = batch
-        # self.units = units
+        self.batch = batch
+        self.units = units
         self.embedding = tf.keras.layers.Embedding(vocab, embedding)
         self.gru = tf.keras.layers.GRU(units,
                                        recurrent_initializer='glorot_uniform',
@@ -26,8 +26,7 @@ class RNNDecoder(tf.keras.layers.Layer):
 
         # Instantiate a self_attention layer (takes arg: units)
         # s_prev: previous decoder hidden state; shape (batch, units)
-        # self_attention = SelfAttention(self.units)
-        self_attention = SelfAttention(s_prev.shape[1])
+        self_attention = SelfAttention(self.units)
 
         # Compute context vector and attention weights
         # s_prev: previous decoder hidden state; shape (batch, units)
@@ -47,9 +46,7 @@ class RNNDecoder(tf.keras.layers.Layer):
         inputs = tf.concat([context_vector, embeddings], axis=-1)
 
         # Pass the decoder inputs on to the GRU layer
-        # initial = hidden_states[:, -1]
         decoder_outputs, last_hidden_state = self.gru(inputs)
-        #                                               initial_state=initial)
         # print("decoder_outputs.shape:", decoder_outputs.shape)
         # print("last_hidden_state.shape:", last_hidden_state)
         # decoder_outputs --> shape (batch, input_seq_len, units)
