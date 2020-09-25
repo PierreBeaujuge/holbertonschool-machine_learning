@@ -34,13 +34,14 @@ class RNNDecoder(tf.keras.layers.Layer):
         # hidden_states: encoder outputs; shape (batch, input_seq_len, units)
         context_vector, attention_weights = self_attention(s_prev,
                                                            hidden_states)
-        # Reshape context
-        context_vector = tf.expand_dims(context_vector, 1)
 
         # Compute the embeddings
         embeddings = self.embedding(x)
         # print("embeddings.shape:", embeddings.shape)
         # embeddings --> shape (batch, input_seq_len, embedding)
+
+        # Reshape context
+        context_vector = tf.expand_dims(context_vector, 1)
 
         # Concatenate embeddings and context vector --> decoder inputs
         inputs = tf.concat([context_vector, embeddings], axis=-1)
