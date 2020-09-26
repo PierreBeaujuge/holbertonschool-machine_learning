@@ -44,7 +44,7 @@ class DecoderBlock(tf.keras.layers.Layer):
 
         # Second MHA block
         attention_output2, _ = self.mha2(attention_output1, encoder_output,
-                                        encoder_output, padding_mask)
+                                         encoder_output, padding_mask)
         attention_output2 = self.dropout2(attention_output2, training=training)
         # Note: sum with 'attention_output1' via the residual connection
         attention_output2 = self.layernorm2(attention_output2 +
