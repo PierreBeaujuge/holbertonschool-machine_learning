@@ -14,9 +14,9 @@ class Transformer(tf.keras.Model):
                  max_seq_input, max_seq_target, drop_rate=0.1):
         """constructor"""
         super(Transformer, self).__init__()
-        self.encoder = Encoder(N, dm , h, hidden, input_vocab,
+        self.encoder = Encoder(N, dm, h, hidden, input_vocab,
                                max_seq_input, drop_rate)
-        self.decoder = Decoder(N, dm , h, hidden, target_vocab,
+        self.decoder = Decoder(N, dm, h, hidden, target_vocab,
                                max_seq_target, drop_rate)
         self.linear = tf.keras.layers.Dense(target_vocab)
 
