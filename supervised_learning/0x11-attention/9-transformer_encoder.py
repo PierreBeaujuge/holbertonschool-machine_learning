@@ -32,14 +32,15 @@ class Encoder(tf.keras.layers.Layer):
     def call(self, x, training, mask):
         """function that builds an Encoder"""
 
-        seq_len = tf.shape(x)[1]
+        # seq_len = tf.shape(x)[1]
+        seq_len = x.shape[1]
 
         # Compute the embeddings; shape (batch_size, input_seq_len, dm)
         embeddings = self.embedding(x)
         # Scale the embeddings
         embeddings *= tf.math.sqrt(tf.cast(self.dm, tf.float32))
         # Sum the positional encodings with the embeddings
-        embeddings += self.positional_encoding[:, :seq_len, :]
+        embeddings += self.positional_encoding[:seq_len, :]
         # Pass the embeddings on to the dropout layer
         output = self.dropout(embeddings, training=training)
 
