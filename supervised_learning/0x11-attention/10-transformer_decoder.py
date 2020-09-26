@@ -21,7 +21,7 @@ class Decoder(tf.keras.layers.Layer):
         self.dm = dm
         # Instantiate an embedding layer
         # note: target_vocab == vocab_size
-        self.embedding = tf.keras.layers.Embedding(input_vocab, dm)
+        self.embedding = tf.keras.layers.Embedding(target_vocab, dm)
         # Instantiate a positional encoding layer
         self.positional_encoding = positional_encoding(max_seq_len, self.dm)
         # List with N decoder blocks
