@@ -23,9 +23,10 @@ class Encoder(tf.keras.layers.Layer):
         # note: input_vocab == vocab_size
         self.embedding = tf.keras.layers.Embedding(input_vocab, dm)
         # Instantiate a positional encoding layer
-        self.positional_encoding = positional_encoding(max_seq_len, self.dm)
+        self.positional_encoding = positional_encoding(max_seq_len, dm)
         # List with N encoder blocks
-        self.blocks = [EncoderBlock(dm, h, hidden, drop_rate)] * N
+        self.blocks = [EncoderBlock(dm, h, hidden, drop_rate)
+                       for _ in range(N)]
         # Instantiate a dropout layer
         self.dropout = tf.keras.layers.Dropout(drop_rate)
 
