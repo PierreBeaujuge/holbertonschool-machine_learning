@@ -33,8 +33,8 @@ class Decoder(tf.keras.layers.Layer):
     def call(self, x, encoder_output, training, look_ahead_mask, padding_mask):
         """function that builds a Decoder"""
 
-        seq_len = tf.shape(x)[1]
-        # seq_len = x.shape[1]
+        # seq_len = tf.shape(x)[1]
+        seq_len = x.shape[1]
 
         # Compute the embeddings; shape (batch_size, input_seq_len, dm)
         embeddings = self.embedding(x)
