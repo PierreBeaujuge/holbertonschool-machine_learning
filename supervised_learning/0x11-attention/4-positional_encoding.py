@@ -2,7 +2,6 @@
 """
 4-positional_encoding.py
 """
-import tensorflow as tf
 import numpy as np
 
 
@@ -31,7 +30,7 @@ def positional_encoding(max_seq_len, dm):
 
     pos_encoding = angle_rads[np.newaxis, ...]
 
-    return tf.cast(pos_encoding, dtype=tf.float32)
+    return pos_encoding[0]
 
 
 def get_angles(position, i, dm):
