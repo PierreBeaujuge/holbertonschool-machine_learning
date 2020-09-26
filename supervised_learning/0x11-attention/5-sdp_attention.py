@@ -30,7 +30,7 @@ def sdp_attention(Q, K, V, mask=None):
     # attention_weights: shape (..., seq_len_q, seq_len_k)
 
     # Note: As the softmax normalization is done on K, its values decide
-    # the amount of importance given to Q.
+    # the amount of significance given to Q.
     # The output represents the multiplication of the attention weights and
     # the V (value) vector. This ensures that the words you want to focus on
     # are kept as-is and the irrelevant words are flushed out.
