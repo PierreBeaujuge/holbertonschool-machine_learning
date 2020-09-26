@@ -15,7 +15,8 @@ def sdp_attention(Q, K, V, mask=None):
     # to (..., seq_len_q, seq_len_k)
 
     # Compute the dot product of Q and K (attention_logits)
-    matmul_qk = tf.matmul(Q, K, transpose_b=True)  # (..., seq_len_q, seq_len_k)
+    matmul_qk = tf.matmul(Q, K, transpose_b=True)
+    # (..., seq_len_q, seq_len_k)
 
     # Scale matmul_qk (attention_logits)
     dk = tf.cast(tf.shape(K)[-1], tf.float32)
