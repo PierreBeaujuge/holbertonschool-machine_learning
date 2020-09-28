@@ -38,9 +38,6 @@ pip install --user gym
 
 ## Tasks
 
-<details>
-<summary>View Contents</summary>
-
 ### [0. Load the Environment](./0-load_env.py)
 
 Write a function `def load_frozen_lake(desc=None, map_name=None, is_slippery=False):` that loads the pre-made `FrozenLakeEnv` evnironment from OpenAI’s `gym`:
@@ -188,8 +185,6 @@ FF`G`
 1.0
 $
 ```
-
-</details>
 
 ## Author
 
