@@ -17,7 +17,7 @@ Learning Objectives
 
 ## Requirements
 
-- Allowed editors: `vi, `vim`, `emacs`
+- Allowed editors: `vi`, `vim`, `emacs`
 - All your files will be interpreted/compiled on Ubuntu 16.04 LTS using `python3` (version 3.5)
 - Your files will be executed with `numpy` (version 1.15), and `gym` (version 0.7)
 - All your files should end with a new line
