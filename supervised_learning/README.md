@@ -22,7 +22,7 @@ This repository contains programs for the Supervised Learning section of the Mac
 | [0x0B Face Verification](./0x0B-face_verification)                             | ########                                             |
 | [0x0C Neural Style Transfer](./0x0C-neural_style_transfer)                     | ########                                             |
 | [0x0D RNNs](./0x0D-RNNs)                                                       | Recurrent Neural Networks, LSTM, GRU, Bidirectional  |
-| [0x0E. Time Series Forecasting](./0x0E-time_series)                            | ########                                             |
+| [0x0E Time Series Forecasting](./0x0E-time_series)                             | ########                                             |
 | [0x0F Natural Language Processing - Word Embeddings](./0x0F-word_embeddings)   | ########                                             |
 | [0x10 Natural Language Processing - Evaluation Metrics](./0x10-nlp_metrics)    | ########                                             |
 | [0x11 Attention](./0x11-attention)                                             | ########                                             |
