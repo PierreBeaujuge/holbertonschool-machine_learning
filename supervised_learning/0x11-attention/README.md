@@ -41,7 +41,7 @@ pip install --user tensorflow==1.15
 ### [0. RNN Encoder](./0-rnn_encoder.py)
 
 Create a class `RNNEncoder` that inherits from `tensorflow.keras.layers.Layer` to encode for machine translation:
-- Class constructor def `__init__(self, vocab, embedding, units, batch):`
+- Class constructor `def __init__(self, vocab, embedding, units, batch):`
   - `vocab` is an integer representing the size of the input vocabulary
   - `embedding` is an integer representing the dimensionality of the embedding vector
   - `units` is an integer representing the number of hidden units in the RNN cell
