@@ -76,6 +76,8 @@ $
 ```
 Ignore the Warning messages in the output
 
+---
+
 ### [1. Self Attention](./1-self_attention.py)
 
 Create a class SelfAttention that inherits from tensorflow.keras.layers.Layer to calculate the attention for machine translation based on this paper:
@@ -103,6 +105,8 @@ Tensor("self_attention/transpose_1:0", shape=(32, 10, 1), dtype=float64)
 $
 ```
 Ignore the Warning messages in the output
+
+---
 
 ### [2. RNN Decoder](./2-rnn_decoder.py)
 
@@ -140,6 +144,8 @@ $
 ```
 Ignore the Warning messages in the output
 
+---
+
 ### [3. Positional Encoding](./4-positional_encoding.py)
 
 Write the function def positional_encoding(max_seq_len, dm): that calculates the positional encoding for a transformer:
@@ -168,6 +174,8 @@ $ ./4-main.py
 $
 ```
 
+---
+
 ### [4. Scaled Dot Product Attention](./5-sdp_attention.py)
 
 Write the function def sdp_attention(Q, K, V, mask=None) that calculates the scaled dot product attention:
@@ -188,6 +196,8 @@ Tensor("MatMul_1:0", shape=(50, 10, 512), dtype=float32)
 Tensor("Softmax:0", shape=(50, 10, 15), dtype=float32)
 $
 ```
+
+---
 
 ### [5. Multi Head Attention](./6-multihead_attention.py)
 
@@ -230,6 +240,8 @@ $
 ```
 Ignore the Warning messages in the output
 
+---
+
 ### [6. Transformer Encoder Block](./7-transformer_encoder_block.py)
 
 Create a class EncoderBlock that inherits from tensorflow.keras.layers.Layer to create an encoder block for a transformer:
@@ -267,6 +279,8 @@ Tensor("encoder_block/layer_normalization_1/batchnorm/add_1:0", shape=(32, 10, 5
 $
 ```
 Ignore the Warning messages in the output
+
+---
 
 ### [7. Transformer Decoder Block](./8-transformer_decoder_block.py)
 
@@ -313,6 +327,8 @@ Tensor("decoder_block/layer_normalization_2/batchnorm/add_1:0", shape=(32, 15, 5
 $
 ```
 Ignore the Warning messages in the output
+
+---
 
 ### [8. Transformer Encoder](./9-transformer_encoder.py)
 
@@ -364,6 +380,8 @@ Tensor("encoder/encoder_block_5/layer_normalization_11/batchnorm/add_1:0", shape
 $
 ```
 Ignore the Warning messages in the output
+
+---
 
 ### [9. Transformer Decoder](./10-transformer_decoder.py)
 
@@ -418,6 +436,8 @@ $
 ```
 Ignore the Warning messages in the output
 
+---
+
 ### [10. Transformer Network](./11-transformer.py)
 
 Create a class Transformer that inherits from tensorflow.keras.Model to create a transformer network:
@@ -455,6 +475,8 @@ Tensor("transformer/dense_96/BiasAdd:0", shape=(32, 15, 12000), dtype=float32)
 $
 ```
 Ignore the Warning messages in the output
+
+---
 
 ## Author
 
