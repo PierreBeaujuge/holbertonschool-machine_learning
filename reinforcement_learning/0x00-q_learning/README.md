@@ -77,6 +77,8 @@ $ ./0-main.py
 $
 ```
 
+---
+
 ### [1. Initialize Q-table](./1-q_init.py)
 
 Write a function `def q_init(env):` that initializes the Q-table:
@@ -91,6 +93,8 @@ $ ./1-main.py
 (16, 4)
 $
 ```
+
+---
 
 ### [2. Epsilon Greedy](./2-epsilon_greedy.py)
 
@@ -108,6 +112,8 @@ $ ./2-main.py
 0
 $
 ```
+
+---
 
 ### [3. Q-learning](./3-q_learning.py)
 
@@ -150,6 +156,8 @@ $ ./3-main.py
 $
 ```
 
+---
+
 ### [4. Play](./4-play.py)
 
 Write a function `def play(env, Q, max_steps=100):` that has the trained agent play an episode:
@@ -185,6 +193,8 @@ FF`G`
 1.0
 $
 ```
+
+---
 
 ## Author
 
