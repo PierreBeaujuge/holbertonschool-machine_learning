@@ -9,9 +9,9 @@ This repository contains directories pertaining to the Machine Learning Speciali
 | Directory                                                                      | Description                                          |
 | :----------------------------------------------------------------------------- | :--------------------------------------------------- |
 | [Math for Machine Learning](./math)                                            | Math relevant to the Machine Learning curriculum     |
-| [Supervised Learning](./supervised_learning)                                   | Logistic regressions, [...] Attention, Transformers  |
-| [Unsupervised Learning](./unsupervised_learning)                               | Hyperparameter tuning, [...] Autoencoders, GANs      |
-| [Reinforcement Learning](./reinforcement_learning)                             | Q-learning, Deep Q-learning, [...]                   |
+| [Supervised Learning](./supervised_learning)                                   | From logistic regressions to Attention, Transformers |
+| [Unsupervised Learning](./unsupervised_learning)                               | From hyperparameter tuning to Autoencoders, GANs     |
+| [Reinforcement Learning](./reinforcement_learning)                             | From Q-learning, Deep Q-learning, to [ongoing]       |
 
 ## Author
 
