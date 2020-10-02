@@ -57,7 +57,11 @@
 
 ---
 
-### [Bayesian Optimization](./5-bayes_opt.py)
+### [5. Bayesian Optimization](./5-bayes_opt.py)
+
+---
+
+### [6. Medium Article](https://medium.com/@pierre.beaujuge/bayesian-optimization-on-the-head-classifier-of-pre-trained-cnns-using-the-cifar10-dataset-48c440b67b2c)
 
 ---
 
