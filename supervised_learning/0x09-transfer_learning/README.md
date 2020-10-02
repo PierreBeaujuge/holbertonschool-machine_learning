@@ -1,7 +1,7 @@
 # 0x09. Transfer Learning
 
-## This project was summarized in a Medium article:
-- **["Classifying Images from the CIFAR10 Dataset with Pre-Trained CNNs Using Transfer Learning"]** - (https://medium.com/@pierre.beaujuge/classifying-images-from-the-cifar10-dataset-with-pre-trained-cnns-using-transfer-learning-9348f6d878a8)
+## This project was summarized in a Medium article (follow the link!):
+["Classifying Images from the CIFAR10 Dataset with Pre-Trained CNNs Using Transfer Learning"](https://medium.com/@pierre.beaujuge/classifying-images-from-the-cifar10-dataset-with-pre-trained-cnns-using-transfer-learning-9348f6d878a8)
 
 ## Learning Objectives
 
