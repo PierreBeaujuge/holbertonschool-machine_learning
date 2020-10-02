@@ -74,7 +74,7 @@ For the following main files, please use these images:
 
 ---
 
-### [10. Variational Cost](./10-neural_style.py)
+### [10. Variational Cost](./100-neural_style.py)
 
 ---
 
