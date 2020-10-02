@@ -52,15 +52,6 @@ Once complete, you should simply be able to vagrant ssh to log into your VM and 
 
 Hint for `emacs` users: you will have to use `emacs -nw` to prevent it from launching its GUI.
 
-## Installing numpy 1.15, scipy 1.3, and pycodestyle 2.5
-
-```
-$ pip install --user numpy==1.15
-$ pip install --user scipy==1.3
-$ pip install --user pycodestyle==2.5
-```
-To check that all have been successfully downloaded, use `pip list`
-
 ## Tasks
 
 ### [0. Line Graph](./0-line.py)
