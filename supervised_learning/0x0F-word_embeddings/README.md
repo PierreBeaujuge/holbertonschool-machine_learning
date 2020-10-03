@@ -54,7 +54,7 @@ Write a function `def bag_of_words(sentences, vocab=None):` that creates a bag o
     - `f` is the number of features analyzed
   - `features` is a list of the features used for `embeddings`
 
-```sh
+```
 $ ./0-main.py
 [[0 1 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0]
  [0 1 0 0 0 0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0]
@@ -83,7 +83,7 @@ Write a function `def tf_idf(sentences, vocab=None):` that creates a TF-IDF embe
     - `f` is the number of features analyzed
   - `features` is a list of the features used for `embeddings`
 
-```sh
+```
 $ ./1-main.py
 [[1.         0.         0.         0.         0.         0.
   0.        ]
@@ -162,7 +162,7 @@ Write a function `def gensim_to_keras(model):` that converts a `gensim word2vec`
 - `model` is a trained `gensim word2vec` model
 - Returns: the trainable keras `Embedding`
 
-```sh
+```
 $ ./3-main.py
 [['human', 'interface', 'computer'], ['survey', 'user', 'computer', 'system', 'response', 'time']]
 Using TensorFlow backend.
@@ -187,7 +187,7 @@ Write a function `def fasttext_model(sentences, size=100, min_count=5, negative=
 - workers is the number of worker threads to train the model
 - Returns: the trained model
 
-```sh
+```
 $ ./4-main.py
 [['human', 'interface', 'computer'], ['survey', 'user', 'computer', 'system', 'response', 'time']]
 [-2.3464665e-03 -1.4542247e-04 -3.9549544e-05 -1.5817649e-03
