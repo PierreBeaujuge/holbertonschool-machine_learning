@@ -28,13 +28,55 @@
 
 ### [0. Unigram BLEU score](./0-uni_bleu.py)
 
+Write the function `def uni_bleu(references, sentence):` that calculates the unigram BLEU score for a sentence:
+
+- `references` is a list of reference translations
+  - each reference translation is a list of the words in the translation
+- `sentence` is a list containing the model proposed sentence
+- Returns: the unigram BLEU score
+
+```sh
+$ ./0-main.py
+0.6549846024623855
+$
+```
+
 ---
 
 ### [1. N-gram BLEU score](./1-ngram_bleu.py)
 
+Write the function `def ngram_bleu(references, sentence, n):` that calculates the n-gram BLEU score for a sentence:
+
+- `references` is a list of reference translations
+  - each reference translation is a list of the words in the translation
+- `sentence` is a list containing the model proposed sentence
+- `n` is the size of the n-gram to use for evaluation
+- Returns: the n-gram BLEU score
+
+```sh
+$ ./1-main.py
+0.6140480648084865
+$
+```
+
 ---
 
 ### [2. Cumulative N-gram BLEU score](./2-cumulative_bleu.py)
+
+Write the function `def cumulative_bleu(references, sentence, n):` that calculates the cumulative n-gram BLEU score for a sentence:
+
+- `references` is a list of reference translations
+  - each reference translation is a list of the words in the translation
+- `sentence` is a list containing the model proposed sentence
+- `n` is the size of the largest n-gram to use for evaluation
+- All n-gram scores should be weighted evenly
+- Returns: the cumulative n-gram BLEU score
+
+```sh
+$ ./2-main.py
+0.5475182535069453
+$
+```
 
 ---
 
