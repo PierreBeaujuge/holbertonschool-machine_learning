@@ -178,7 +178,7 @@ $
 
 ### [4. Scaled Dot Product Attention](./5-sdp_attention.py)
 
-<p align="center">
+<p>
   <img src="https://www.tensorflow.org/images/tutorials/transformer/scaled_attention.png">
 </p>
 
@@ -204,6 +204,10 @@ $
 ---
 
 ### [5. Multi Head Attention](./6-multihead_attention.py)
+
+<p>
+  <img src="https://www.tensorflow.org/images/tutorials/transformer/multi_head_attention.png">
+</p>
 
 Create a class `MultiHeadAttention` that inherits from `tensorflow.keras.layers.Layer` to perform multi head attention:
 
@@ -247,6 +251,10 @@ Ignore the Warning messages in the output
 ---
 
 ### [6. Transformer Encoder Block](./7-transformer_encoder_block.py)
+
+<p>
+  <img src="https://www.tensorflow.org/images/tutorials/transformer/transformer.png">
+</p>
 
 Create a class `EncoderBlock` that inherits from `tensorflow.keras.layers.Layer` to create an encoder block for a transformer:
 
