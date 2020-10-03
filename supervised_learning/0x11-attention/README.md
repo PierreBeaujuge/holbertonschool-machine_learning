@@ -178,6 +178,10 @@ $
 
 ### [4. Scaled Dot Product Attention](./5-sdp_attention.py)
 
+<p align="center">
+  <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2020/7/8f5aadef511d9f646f5009756035b472073fe896.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20201003%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201003T010020Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=29e36ec4fd72da3bc6246a9c36cd3ad93d757bf680d6dca808f7fcad9ce70b05">
+</p>
+
 Write the function `def sdp_attention(Q, K, V, mask=None)` that calculates the scaled dot product attention:
 
 - `Q` is a tensor with its last two dimensions as `(..., seq_len_q, dk)` containing the query matrix
