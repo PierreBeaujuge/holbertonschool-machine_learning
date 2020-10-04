@@ -54,7 +54,7 @@ Write a function `def conv_forward(A_prev, W, b, activation, padding="same", str
 ```
 [Image]
 ```
-(50000, 26, 26, 2)
+    (50000, 26, 26, 2)
 ```
 [Image]
 [Image]
