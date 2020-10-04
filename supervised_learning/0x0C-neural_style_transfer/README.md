@@ -1,5 +1,9 @@
 # 0x0C. Neural Style Transfer
 
+<p align="center">
+  <img src="./0x0C-images/img_1.png">
+</p>
+
 ## Learning Objectives
 
 - What is Neural Style Transfer?
@@ -29,8 +33,12 @@
 ## Data
 
 For the following main files, please use these images:
-- `golden_gate.jpg`
+
+- `golden_gate.jpg`:
+![](./0x0C-images/img_2.png)
+
 - `starry_night.jpg`
+![](./0x0C-images/img_3.png)
 
 ## Tasks
 
@@ -74,6 +82,9 @@ Create a class `NST` that performs tasks for neural style transfer:
     1
     True
 ```
+![](./0x0C-images/img_4.png)
+
+![](./0x0C-images/img_5.png)
 
 ---
 
@@ -595,6 +606,8 @@ Update the class `NST` to generate the neural style transfered image:
     Cost at iteration 2000: 1071022.0, content 66.81963348388672, style 402825.71875
     Best cost: 1071022.0
 ```
+![](./0x0C-images/img_6.png)
+
 **NOTE: Due to floating point errors on GPUs, your gradients will be _slightly_ off and therefore, so will your image and costs. It should, however, have the same initial cost. The remaining costs should be in the _general_ vicinity of those listed above**
 
 ---
@@ -701,20 +714,19 @@ Update the class `NST` to account for variational cost:
 ```
 **NOTE: Due to floating point errors on GPUs, your gradients will be _slightly_ off and therefore, so will your image and costs. It should, however, have the same initial cost. The remaining costs should be in the _general_ vicinity of those listed above**
 
-[Image]
+![](./0x0C-images/img_7.png)
 
 **If you zoom in, you can see the pixel variation has significantly decreased:**
 
 Without Variational Cost:
 
-[Image]
+![](./0x0C-images/img_8.png)
 
 With Variational Cost:
 
-[Image]
+![](./0x0C-images/img_9.png)
 
 _Replace the content and style images with your own to create your own artwork!_
-
 
 ---
 
