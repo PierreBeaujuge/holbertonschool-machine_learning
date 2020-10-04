@@ -1,7 +1,7 @@
 # 0x0C. Neural Style Transfer
 
 <p align="center">
-  <img src="./0x0C-images/img_1.png">
+  <img src="./0x0C-images/img_1.jpg">
 </p>
 
 ## Learning Objectives
@@ -35,10 +35,10 @@
 For the following main files, please use these images:
 
 - `golden_gate.jpg`:
-![](./0x0C-images/img_2.png)
+![](./0x0C-images/img_2.jpg)
 
 - `starry_night.jpg`
-![](./0x0C-images/img_3.png)
+![](./0x0C-images/img_3.jpg)
 
 ## Tasks
 
