@@ -30,9 +30,33 @@
 
 ### [0. Transfer Knowledge](./0-transfer.py)
 
+Write a python script that trains a convolutional neural network to classify the CIFAR 10 dataset:
+
+*   You must use one of the applications listed in [Keras Applications](/rltoken/x6jAoAGkY9dHNZwT-uenow "Keras Applications")
+*   Your script must save your trained model in the current working directory as `cifar10.h5`
+*   Your saved model should be compiled
+*   Your saved model should have a validation accuracy of 88% or higher
+*   Your script should not run when the file is imported
+*   _Hint: The training may take a while, start early!_
+
+In the same file, write a function `def preprocess_data(X, Y):` that pre-processes the data for your model:
+
+*   `X` is a `numpy.ndarray` of shape `(m, 32, 32, 3)` containing the CIFAR 10 data, where m is the number of data points
+*   `Y` is a `numpy.ndarray` of shape `(m,)` containing the CIFAR 10 labels for `X`
+*   Returns: `X_p, Y_p`
+    *   `X_p` is a `numpy.ndarray` containing the preprocessed `X`
+    *   `Y_p` is a `numpy.ndarray` containing the preprocessed `Y`
+
+```
+    alexa@ubuntu-xenial:0x09-transfer_learning$ ./0-main.py
+    10000/10000 [==============================] - 159s 16ms/sample - loss: 0.3329 - acc: 0.8864
+```
+
 ---
 
 ### [1. Medium Article](https://medium.com/@pierre.beaujuge/classifying-images-from-the-cifar10-dataset-with-pre-trained-cnns-using-transfer-learning-9348f6d878a8)
+
+Write a blog post explaining your experimental process in completing the task above written as a journal-style scientific paper.
 
 ---
 
