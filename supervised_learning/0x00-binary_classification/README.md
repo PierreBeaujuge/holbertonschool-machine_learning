@@ -313,6 +313,45 @@ Cost after 3000 iterations: 0.013386353289868338
 
 ### [8. NeuralNetwork](./8-neural_network.py)
 
+Write a class `NeuralNetwork` that defines a neural network with one hidden layer performing binary classification:
+
+*   class constructor: `def __init__(self, nx, nodes):`
+    *   `nx` is the number of input features
+        *   If `nx` is not an integer, raise a `TypeError` with the exception: `nx must be an integer`
+        *   If `nx` is less than 1, raise a `ValueError` with the exception: `nx must be a positive integer`
+    *   `nodes` is the number of nodes found in the hidden layer
+        *   If `nodes` is not an integer, raise a `TypeError` with the exception: `nodes must be an integer`
+        *   If `nodes` is less than 1, raise a `ValueError` with the exception: `nodes must be a positive integer`
+    *   All exceptions should be raised in the order listed above
+*   Public instance attributes:
+    *   `W1`: The weights vector for the hidden layer. Upon instantiation, it should be initialized using a random normal distribution.
+    *   `b1`: The bias for the hidden layer. Upon instantiation, it should be initialized with 0’s.
+    *   `A1`: The activated output for the hidden layer. Upon instantiation, it should be initialized to 0.
+    *   `W2`: The weights vector for the output neuron. Upon instantiation, it should be initialized using a random normal distribution.
+    *   `b2`: The bias for the output neuron. Upon instantiation, it should be initialized to 0.
+    *   `A2`: The activated output for the output neuron (prediction). Upon instantiation, it should be initialized to 0.
+
+```
+    alexa@ubuntu-xenial:0x00-binary_classification$ ./8-main.py
+    [[ 1.76405235  0.40015721  0.97873798 ...  0.52130375  0.61192719
+      -1.34149673]
+     [ 0.47689837  0.14844958  0.52904524 ...  0.0960042  -0.0451133
+       0.07912172]
+     [ 0.85053068 -0.83912419 -1.01177408 ... -0.07223876  0.31112445
+      -1.07836109]]
+    (3, 784)
+    [[0.]
+     [0.]
+     [0.]]
+    [[ 1.06160017 -1.18488744 -1.80525169]]
+    (1, 3)
+    0
+    0
+    0
+    10
+    alexa@ubuntu-xenial:0x00-binary_classification$
+```
+
 ---
 
 ### [9. Privatize NeuralNetwork](./9-neural_network.py)
