@@ -52,7 +52,7 @@ Write a function `def conv_forward(A_prev, W, b, activation, padding="same", str
 ```
     ubuntu@alexa-ml:~/supervised_learning/0x07-cnn$ ./0-main.py
 ```
-[Image]
+![](./0x07-images/img_1.png)
 ```
     (50000, 26, 26, 2)
 ```
