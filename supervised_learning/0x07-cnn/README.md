@@ -56,8 +56,8 @@ Write a function `def conv_forward(A_prev, W, b, activation, padding="same", str
 ```
     (50000, 26, 26, 2)
 ```
-[Image]
-[Image]
+![](./0x07-images/img_2.png)
+![](./0x07-images/img_3.png)
 
 ---
 
@@ -84,13 +84,13 @@ Write a function `def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='ma
     ubuntu@alexa-ml:~/supervised_learning/0x07-cnn$ ./1-main.py 
     (50000, 28, 28, 2)
 ```
-[Image]
-[Image]
+![](./0x07-images/img_4.png)
+![](./0x07-images/img_5.png)
 ```
     (50000, 14, 14, 2)
 ```
-[Image]
-[Image]
+![](./0x07-images/img_6.png)
+![](./0x07-images/img_7.png)
 
 ---
 
@@ -788,6 +788,8 @@ Write a function `def pool_backward(dA, A_prev, kernel_shape, stride=(1, 1), mod
 
 ### [4. LeNet-5 (Tensorflow)](./4-lenet5.py)
 
+![](./0x07-images/img_8.png)
+
 Write a function `def lenet5(x, y):` that builds a modified version of the `LeNet-5` architecture using `tensorflow`:
 
 *   `x` is a `tf.placeholder` of shape `(m, 28, 28, 1)` containing the input images for the network
@@ -821,7 +823,7 @@ Write a function `def lenet5(x, y):` that builds a modified version of the `LeNe
     [2.3144582e-16 9.3501662e-10 1.5114866e-11 1.0000000e+00 4.1006549e-14
      3.0734011e-09 5.3557121e-11 4.1970327e-11 1.2145798e-09 5.1159105e-10]
 ```
-[Image]
+![](./0x07-images/img_9.png)
 
 ---
 
@@ -870,7 +872,7 @@ Write a function `def lenet5(X):` that builds a modified version of the `LeNet-5
      [1.46054626e-05 9.91086857e-09 9.40336733e-08 ... 1.30083482e-08
       9.99984980e-01 6.66213822e-08]]
 ```
-[Image]
+![](./0x07-images/img_10.png)
 
 ---
 
