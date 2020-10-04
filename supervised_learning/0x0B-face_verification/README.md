@@ -1,5 +1,9 @@
 # 0x0B. Face Verification
 
+<p align='center'>
+  <img src='./0x0B-images/img_1.gif'>
+</p>
+
 ## Project upload pending (awaiting server fixes and review)
 
 ## Learning Objectives
@@ -77,6 +81,7 @@ Write the function `def load_images(images_path, as_array=True):` that loads ima
     <class 'list'> 385
     195
 ```
+![](./0x0B-images/img_2.png)
 
 ---
 
@@ -130,6 +135,7 @@ Update the class `FaceAlign`:
     alexa@ubuntu-xenial:0x0B-face_verification$ ./3-main.py
     <class 'dlib.rectangle'>
 ```
+![](./0x0B-images/img_3.png)
 
 ---
 
@@ -148,6 +154,7 @@ Update the class `FaceAlign`:
     alexa@ubuntu-xenial:0x0B-face_verification$ ./4-main.py
     <class 'numpy.ndarray'> (68, 2)
 ```
+![](./0x0B-images/img_4.png)
 
 ---
 
@@ -165,6 +172,7 @@ Update the class `FaceAlign`:
 ```
     alexa@ubuntu-xenial:0x0B-face_verification$ ./5-main.py
 ```
+![](./0x0B-images/img_5.png)
 
 ---
 
@@ -183,6 +191,7 @@ Also in `utils.py`, write a function `def save_images(path, images, filenames):`
     True
     ['MariaCoyUlloa4.jpg', 'TuVo0.jpg', 'XimenaCarolinaAndradeVargas1.jpg', 'RodrigoCruz4.jpg', 'LeineValente0.jpg', 'JuanValencia1.jpg', 'DennisPham3.jpg', 'NgaLa3.jpg', 'RodrigoCruz0.jpg', 'LeineValente4.jpg', 'HeimerRojas5.jpg', 'LauraRoudge5.jpg', 'FaizanKhan2.jpg', 'KennethCortesAguas4.jpg', 'AdamSedki3.jpg', 'FaizanKhan1.jpg', 'KennethCortesAguas1.jpg', 'FrancescaCantor6.jpg', 'SamieAzad3.jpg', 'DavidKwan2.jpg', 'DiegoAndrésCastellanosRodríguez0.jpg', 'JulienneTesoro6.jpg', 'PhuTruong2.jpg', 'JohnCook4.jpg', 'RussellMolimock1.jpg', 'SnehaDasaLakshminath3.jpg', 'AnthonyLe1.jpg', 'AndrewMaring3.jpg', 'YesidGonzalez1.jpg', 'HeimerRojas6.jpg', 'RussellMolimock4.jpg', 'DiegoAndrésCastellanosRodríguez1.jpg', 'AdamSedki.jpg', 'NgaLa2.jpg', 'LauraVasquezBernal.jpg', 'CarlosArias5.jpg', 'FrancescaCantor2.jpg', 'ArthurDamm1.jpg', 'DennisPham6.jpg', 'BrentJanski0.jpg', 'XimenaCarolinaAndradeVargas.jpg', 'OlgaLucíaRodríguezToloza0.jpg', 'FaizanKhan0.jpg', 'LeoByeon0.jpg', 'ElaineYeung4.jpg', 'ChristianWilliams0.jpg', 'JohnCook3.jpg', 'KoomeMwiti0.jpg', 'DavidKwan.jpg', 'JuanValencia4.jpg', 'RodrigoCruz1.jpg', 'DavidKwan3.jpg', 'JaiberRamirez3.jpg', 'AnthonyLe2.jpg', 'RodrigoCruz.jpg', 'TimAssavarat2.jpg', 'SamuelAlexanderFlorez7.jpg', 'SamieAzad0.jpg', 'FrancescaCantor4.jpg', 'CarlosArias4.jpg', 'JavierCañon5.jpg', 'GiovannyAlexanderRubioAlbornoz1.jpg', 'HeimerRojas3.jpg', 'RussellMolimock0.jpg', 'NgaLa5.jpg', 'KyleLitscher3.jpg', 'PhuTruong3.jpg', 'AlishaSmith3.jpg', 'JulienneTesoro5.jpg', 'TuVo2.jpg', 'SamieAzad2.jpg', 'AlishaSmith0.jpg', 'SamuelAlexanderFlorez.jpg', 'BrentJanski2.jpg', 'KennethCortesAguas.jpg', 'DennisPham7.jpg', 'XimenaCarolinaAndradeVargas6.jpg', 'ArthurDamm.jpg', 'RyanHudson.jpg', 'YesidGonzalez4.jpg', 'LauraVasquezBernal0.jpg', 'SamieAzad5.jpg', 'DianaBoada6.jpg', 'NgaLa.jpg', 'DiegoAndrésCastellanosRodríguez4.jpg', 'HaroldoVélezLora4.jpg', 'KoomeMwiti4.jpg', 'MiaMorton1.jpg', 'AlishaSmith2.jpg', 'NgaLa4.jpg', 'XimenaCarolinaAndradeVargas0.jpg', 'DianaBoada1.jpg', 'TuVo4.jpg', 'MarkHedgeland1.jpg', 'SofiaCheung2.jpg', 'RicardoGutierrez6.jpg', 'BrentJanski1.jpg', 'CarlosArias0.jpg', 'RodrigoCruz5.jpg', 'TuVo3.jpg', 'LauraVasquezBernal4.jpg', 'XimenaCarolinaAndradeVargas4.jpg', 'BrentJanski6.jpg', 'ElaineYeung3.jpg', 'DianaBoada3.jpg', 'SamieAzad6.jpg', 'SamuelAlexanderFlorez3.jpg', 'RodrigoCruz7.jpg', 'RicardoGutierrez4.jpg', 'HeimerRojas2.jpg', 'KoomeMwiti.jpg', 'FaizanKhan3.jpg', 'JuanValencia3.jpg', 'TimAssavarat.jpg', 'JaiberRamirez1.jpg', 'SnehaDasaLakshminath2.jpg', 'LeineValente2.jpg', 'SamieAzad1.jpg', 'HaroldoVélezLora0.jpg', 'ElaineYeung7.jpg', 'HaroldoVélezLora.jpg', 'CarlosArias.jpg', 'GiovannyAlexanderRubioAlbornoz5.jpg', 'BrentJanski4.jpg', 'HongtuHuang.jpg', 'RodrigoCruz2.jpg', 'HeimerRojas.jpg', 'AlishaSmith.jpg', 'NgaLa0.jpg', 'PhuTruong0.jpg', 'JulienneTesoro2.jpg', 'ArthurDamm2.jpg', 'BrendanEliason4.jpg', 'XimenaCarolinaAndradeVargas5.jpg', 'JaiberRamirez7.jpg', 'AndrewMaring1.jpg', 'MohamethSeck0.jpg', 'AllisonWeiner.jpg', 'KirenSrinivasan0.jpg', 'LeineValente1.jpg', 'DennisPham.jpg', 'SamuelAlexanderFlorez2.jpg', 'AndrewMaring.jpg', 'BrendanEliason3.jpg', 'HeimerRojas1.jpg', 'RicardoGutierrez8.jpg', 'MohamethSeck2.jpg', 'KoomeMwiti3.jpg', 'MohamethSeck6.jpg', 'CarlosArias2.jpg', 'ElaineYeung.jpg', 'JohnCook1.jpg', 'JaiberRamirez4.jpg', 'ElaineYeung6.jpg', 'LeoByeon.jpg', 'BrendanEliason1.jpg', 'RussellMolimock3.jpg', 'KirenSrinivasan.jpg', 'RobertSebastianCastellanosRodriguez.jpg', 'RicardoGutierrez5.jpg', 'RicardoGutierrez3.jpg', 'RicardoGutierrez1.jpg', 'RussellMolimock2.jpg', 'JaiberRamirez.jpg', 'JaiberRamirez2.jpg', 'RicardoGutierrez.jpg', 'DavidLatorre.jpg', 'DianaBoada10.jpg', 'JulienneTesoro7.jpg', 'PhuTruong5.jpg', 'SofiaCheung0.jpg', 'YesidGonzalez3.jpg', 'JavierCañon2.jpg', 'KennethCortesAguas2.jpg', 'JuanValencia.jpg', 'MariaCoyUlloa.jpg', 'LauraVasquezBernal1.jpg', 'DavidKwan1.jpg', 'SnehaDasaLakshminath.jpg', 'BrentJanski7.jpg', 'AndrewMaring2.jpg', 'KyleLitscher0.jpg', 'HaroldoVélezLora1.jpg', 'LeoByeon3.jpg', 'MarkHedgeland2.jpg', 'JuanDavidAmayaGaviria.jpg', 'HeimerRojas7.jpg', 'DianaBoada0.jpg', 'SofiaCheung7.jpg', 'ElaineYeung8.jpg', 'AnthonyLe4.jpg', 'ElaineYeung2.jpg', 'JaiberRamirez5.jpg', 'SamuelAlexanderFlorez6.jpg', 'FaizanKhan.jpg', 'MarkHedgeland.jpg', 'OlgaLucíaRodríguezToloza4.jpg', 'DennisPham5.jpg', 'MiaMorton2.jpg', 'DianaBoada4.jpg', 'DennisPham2.jpg', 'JavierCañon.jpg', 'MohamethSeck3.jpg', 'RodrigoCruz3.jpg', 'PhuTruong1.jpg', 'FeliciaHsieh.jpg', 'JavierCañon4.jpg', 'KyleLitscher2.jpg', 'LauraRoudge2.jpg', 'TimAssavarat4.jpg', 'FrancescaCantor3.jpg', 'OlgaLucíaRodríguezToloza5.jpg', 'HaroldoVélezLora3.jpg', 'KyleLitscher.jpg', 'MiaMorton0.jpg', 'OlgaLucíaRodríguezToloza3.jpg', 'BrentJanski.jpg', 'NgaLa7.jpg', 'AdamSedki1.jpg', 'SamuelAlexanderFlorez1.jpg', 'LauraRoudge1.jpg', 'SofiaCheung.jpg', 'GiovannyAlexanderRubioAlbornoz3.jpg', 'ElaineYeung1.jpg', 'HeimerRojas10.jpg', 'GiovannyAlexanderRubioAlbornoz2.jpg', 'ArthurDamm0.jpg', 'RicardoGutierrez0.jpg', 'MarkHedgeland0.jpg', 'JuanValencia0.jpg', 'LeineValente.jpg', 'LeoByeon1.jpg', 'LauraVasquezBernal3.jpg', 'AlishaSmith4.jpg', 'CarlosArias3.jpg', 'JulienneTesoro0.jpg', 'BrendanEliason0.jpg', 'RodrigoCruz6.jpg', 'MiaMorton3.jpg', 'RobertSebastianCastellanosRodriguez4.jpg', 'MiaMorton4.jpg', 'SamieAzad4.jpg', 'BrendanEliason.jpg', 'AndrewMaring0.jpg', 'LauraRoudge0.jpg', 'PhuTruong.jpg', 'MarianaPlazas.jpg', 'MariaCoyUlloa3.jpg', 'SofiaCheung6.jpg', 'YesidGonzalez0.jpg', 'SofiaCheung3.jpg', 'BrendanEliason2.jpg', 'AlishaSmith1.jpg', 'DianaBoada8.jpg', 'JulienneTesoro3.jpg', 'MarkHedgeland3.jpg', 'JuanValencia2.jpg', 'JaiberRamirez0.jpg', 'DianaBoada.jpg', 'FrancescaCantor1.jpg', 'RodrigoCruz10.jpg', 'SofiaCheung5.jpg', 'ChristianWilliams.jpg', 'DennisPham0.jpg', 'RodrigoCruz8.jpg', 'TimAssavarat0.jpg', 'DavidKwan4.jpg', 'RobertSebastianCastellanosRodriguez0.jpg', 'TuVo1.jpg', 'TuVo.jpg', 'SnehaDasaLakshminath4.jpg', 'TimAssavarat3.jpg', 'RussellMolimock.jpg', 'YesidGonzalez2.jpg', 'HeimerRojas8.jpg', 'XimenaCarolinaAndradeVargas3.jpg', 'RobertSebastianCastellanosRodriguez1.jpg', 'ElaineYeung0.jpg', 'SofiaCheung1.jpg', 'ArthurDamm6.jpg', 'BrentJanski5.jpg', 'YesidGonzalez.jpg', 'FrancescaCantor5.jpg', 'ArthurDamm5.jpg', 'KoomeMwiti1.jpg', 'GiovannyAlexanderRubioAlbornoz7.jpg', 'SamuelAlexanderFlorez0.jpg', 'KennethCortesAguas0.jpg', 'LeineValente3.jpg', 'LauraRoudge3.jpg', 'KyleLitscher1.jpg', 'GiovannyAlexanderRubioAlbornoz4.jpg', 'PhuTruong4.jpg', 'MariaCoyUlloa0.jpg', 'OlgaLucíaRodríguezToloza1.jpg', 'AdamSedki2.jpg', 'OlgaLucíaRodríguezToloza.jpg', 'JohnCook0.jpg', 'MohamethSeck5.jpg', 'SnehaDasaLakshminath1.jpg', 'MiaMorton.jpg', 'CarlosArias6.jpg', 'AdamSedki0.jpg', 'LauraRoudge4.jpg', 'JohnCook2.jpg', 'MohamethSeck4.jpg', 'AndrewMaring4.jpg', 'GiovannyAlexanderRubioAlbornoz6.jpg', 'DianaBoada2.jpg', 'ChristianWilliams3.jpg', 'JavierCañon6.jpg', 'DianaBoada7.jpg', 'MariaCoyUlloa2.jpg', 'ChristianWilliams1.jpg', 'FrancescaCantor.jpg', 'KyleLitscher4.jpg', 'NgaLa6.jpg', 'DiegoAndrésCastellanosRodríguez3.jpg', 'KennethCortesAguas3.jpg', 'GiovannyAlexanderRubioAlbornoz.jpg', 'DavidKwan0.jpg', 'ArthurDamm3.jpg', 'SamuelAlexanderFlorez8.jpg', 'OlgaLucíaRodríguezToloza2.jpg', 'DennisPham1.jpg', 'RicardoGutierrez2.jpg', 'RobertSebastianCastellanosRodriguez2.jpg', 'SofiaCheung4.jpg', 'SamieAzad.jpg', 'SnehaDasaLakshminath0.jpg', 'DiegoAndrésCastellanosRodríguez2.jpg', 'AnthonyLe.jpg', 'ChristianWilliams2.jpg', 'RicardoGutierrez7.jpg', 'NgaLa1.jpg', 'SamuelAlexanderFlorez5.jpg', 'DiegoAndrésCastellanosRodríguez.jpg', 'KirenSrinivasan4.jpg', 'CarlosArias1.jpg', 'BrittneyGoertzen.jpg', 'SamuelAlexanderFlorez4.jpg', 'ArthurDamm4.jpg', 'JaiberRamirez6.jpg', 'AndresMartinPeñaRivera.jpg', 'XimenaCarolinaAndradeVargas2.jpg', 'JavierCañon3.jpg', 'KirenSrinivasan2.jpg', 'DennisPham8.jpg', 'BrentJanski3.jpg', 'FrancescaCantor0.jpg', 'JulienneTesoro1.jpg', 'PhuTruong6.jpg', 'OmarMartínezBermúdez.jpg', 'HeimerRojas4.jpg', 'DianaBoada5.jpg', 'JavierCañon0.jpg', 'LauraVasquezBernal2.jpg', 'DennisPham4.jpg', 'HaroldoVélezLora2.jpg', 'ElaineYeung5.jpg', 'SamuelAlexanderFlorez10.jpg', 'JosefGoodyear.jpg', 'KirenSrinivasan1.jpg', 'MarkHedgeland4.jpg', 'MariaCoyUlloa1.jpg', 'MohamethSeck.jpg', 'GiovannyAlexanderRubioAlbornoz0.jpg', 'AnthonyLe3.jpg', 'LauraRoudge.jpg', 'LeoByeon2.jpg', 'KoomeMwiti2.jpg', 'JulienneTesoro.jpg', 'KirenSrinivasan3.jpg', 'JavierCañon1.jpg', 'ChristianWilliams5.jpg', 'RobertSebastianCastellanosRodriguez3.jpg', 'MariaCoyUlloa5.jpg', 'JulienneTesoro4.jpg', 'HeimerRojas0.jpg', 'NathanPetersen.jpg', 'JohnCook.jpg', 'ChristianWilliams4.jpg', 'AnthonyLe0.jpg', 'MohamethSeck1.jpg', 'TimAssavarat1.jpg']
 ```
+![](./0x0B-images/img_6.png)
 
 ---
 
@@ -201,6 +210,7 @@ Also in `utils.py`, write a function `def generate_triplets(images, filenames, t
 ```
     alexa@ubuntu-xenial:0x0B-face_verification$ ./7-main.py
 ```
+![](./0x0B-images/img_7.png)
 
 ---
 
