@@ -1,11 +1,12 @@
 # 0x0A. Object Detection
 
-## Object Detection Images Collected in this Project
+## Some Object Detection Images Generated in this Project :)
 
-![](./0x0A-images/img_11.png)
-![](./0x0A-images/img_12.JPG)
-![](./0x0A-images/img_13.JPG)
-![](./0x0A-images/img_14.PNG)
+<p align='center'>
+  <img src='./0x0A-images/img_11.png'>
+  <img src='./0x0A-images/img_12.JPG'>
+  <img src='./0x0A-images/img_13.JPG'>
+</p>
 
 ## Learning Objectives
 
