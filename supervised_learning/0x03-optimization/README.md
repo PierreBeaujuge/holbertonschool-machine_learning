@@ -236,6 +236,7 @@ Write the function `def moving_average(data, beta):` that calculates the weighte
     ubuntu@alexa-ml:~/0x03-optimization$ ./4-main.py 
     [72.0, 75.15789473684211, 73.62361623616238, 71.98836871183484, 70.52604332006544, 70.20035470453027, 71.88706986789997, 73.13597603396988, 71.80782582850702, 70.60905915023126, 69.93737009120935, 71.0609712312634, 70.11422355031073, 69.32143707981284, 70.79208718739721, 70.81760741911772, 70.59946700377961, 69.9406328280786, 70.17873340222755, 69.47534437750306, 68.41139351151023, 67.58929643210207, 66.97601174673004, 66.86995043877324, 67.42263231561797, 67.91198666959514, 67.8151574064495, 67.72913996327617, 67.65262186609462, 67.68889744321645, 68.44900744806469]
 ```
+![](./0x03-images/img_1.png)
 
 ---
 
@@ -264,6 +265,7 @@ Write the function `def update_variables_momentum(alpha, beta1, var, grad, v):` 
     Cost after 900 iterations: 0.07562924162824029
     Cost after 1000 iterations: 0.0695782354732263
  ```
+![](./0x03-images/img_2.png)
 
 ---
 
@@ -291,6 +293,7 @@ Write the function `def create_momentum_op(loss, alpha, beta1):` that creates th
     Cost after 900 iterations: 0.16998952627182007
     Cost after 1000 iterations: 0.1602744460105896
  ```
+![](./0x03-images/img_3.png)
 
 ---
 
@@ -320,6 +323,7 @@ Write the function `def update_variables_RMSProp(alpha, beta2, epsilon, var, gra
     Cost after 900 iterations: 0.0005599361043400206
     Cost after 1000 iterations: 0.0002655839831275339
 ```
+![](./0x03-images/img_4.png)
 
 ---
 
@@ -348,6 +352,7 @@ Write the function `def create_RMSProp_op(loss, alpha, beta2, epsilon):` that cr
     Cost after 900 iterations: 0.005407326854765415
     Cost after 1000 iterations: 0.003452717326581478
 ```
+![](./0x03-images/img_5.png)
 
 ---
 
@@ -380,6 +385,7 @@ Write the function `def update_variables_Adam(alpha, beta1, beta2, epsilon, var,
     Cost after 900 iterations: 0.011813533123333355
     Cost after 1000 iterations: 0.008996494409788116
 ```
+![](./0x03-images/img_6.png)
 
 ---
 
@@ -409,6 +415,7 @@ Write the function `def create_Adam_op(loss, alpha, beta1, beta2, epsilon):` tha
     Cost after 900 iterations: 0.00019614089978858829
     Cost after 1000 iterations: 0.00010206626757280901
 ```
+![](./0x03-images/img_7.png)
 
 ---
 
