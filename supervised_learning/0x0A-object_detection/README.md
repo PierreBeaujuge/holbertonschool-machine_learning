@@ -3,9 +3,9 @@
 ## Object Detection Images Collected in this Project
 
 ![](./0x0A-images/img_11.png)
-![](./0x0A-images/img_12.png)
-![](./0x0A-images/img_13.png)
-![](./0x0A-images/img_14.png)
+![](./0x0A-images/img_12.JPG)
+![](./0x0A-images/img_13.JPG)
+![](./0x0A-images/img_14.PNG)
 
 ## Learning Objectives
 
