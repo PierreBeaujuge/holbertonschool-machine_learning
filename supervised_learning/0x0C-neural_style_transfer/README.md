@@ -4,6 +4,26 @@
   <img src="./0x0C-images/img_1.jpg">
 </p>
 
+## Some Images Generated via Neural Style Transfer in this Project :)
+
+<p align='center'>
+  <img src='./0x0C-images/img_10.png'>
+  <img src='./0x0C-images/img_11.png'>
+  <img src='./0x0C-images/img_12.png'>
+</p>
+
+<p align='center'>
+  <img src='./0x0C-images/img_13.png'>
+  <img src='./0x0C-images/img_14.png'>
+  <img src='./0x0C-images/img_15.png'>
+</p>
+
+<p align='center'>
+  <img src='./0x0C-images/img_16.png'>
+  <img src='./0x0C-images/img_17.png'>
+  <img src='./0x0C-images/img_18.png'>
+</p>
+
 ## Learning Objectives
 
 - What is Neural Style Transfer?
