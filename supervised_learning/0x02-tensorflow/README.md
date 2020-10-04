@@ -236,6 +236,7 @@ Write the function `def evaluate(X, Y, save_path):` that evaluates the output of
     Test Accuracy: 0.9391
     Test Cost: 0.21756475
 ```
+![](./0x02-images/img_1.png)
 
 ---
 
