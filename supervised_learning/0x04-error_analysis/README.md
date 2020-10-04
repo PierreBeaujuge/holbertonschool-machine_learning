@@ -153,6 +153,17 @@ Approaches:
 
 ---
 
+### [6. Compare and Contrast](./6-compare_and_contrast)
+
+Given the following training and validation confusion matrices and the fact that human level performance has an error of ~14%, determine what the most important issue is and write the lettered answer in the file `6-compare_and_contrast`
+![](./0x04-images/img_1.png)
+Most important issue:
+```
+A. High Bias
+B. High Variance
+C. Nothing
+```
+
 ## Author
 
 - **Pierre Beaujuge** - [PierreBeaujuge](https://github.com/PierreBeaujuge)
