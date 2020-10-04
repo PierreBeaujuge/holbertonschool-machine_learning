@@ -28,6 +28,8 @@
 
 ### [0. Inception Block](./0-inception_block.py)
 
+![](./0x08-images/img_1.png)
+
 Write a function `def inception_block(A_prev, filters):` that builds an inception block as described in `Going Deeper with Convolutions (2014)`:
 
 *   `A_prev` is the output from the previous layer
@@ -84,6 +86,8 @@ Write a function `def inception_network():` that builds the inception network as
 *   All convolutions inside and outside the inception block should use a rectified linear activation (ReLU)
 *   You may use `inception_block = __import__('0-inception_block').inception_block`
 *   Returns: the keras model
+
+![](./0x08-images/img_2.png)
 
 ```
     ubuntu@alexa-ml:~/supervised_learning/0x08-deep_cnns$ ./1-main.py 
@@ -294,6 +298,8 @@ Write a function `def inception_network():` that builds the inception network as
 
 ### [2. Identity Block](./2-identity_block.py)
 
+![](./0x08-images/img_3.png)
+
 Write a function `def identity_block(A_prev, filters):` that builds an identity block as described in [Deep Residual Learning for Image Recognition (2015)](/rltoken/wuLTyqZfGDJGXQr7ZD2s7A "Deep Residual Learning for Image Recognition (2015)"):
 
 *   `A_prev` is the output from the previous layer
@@ -343,6 +349,8 @@ Write a function `def identity_block(A_prev, filters):` that builds an identity 
 ---
 
 ### [3. Projection Block](./3-projection_block.py)
+
+![](./0x08-images/img_4.png)
 
 Write a function `def projection_block(A_prev, filters, s=2):` that builds a projection block as described in [Deep Residual Learning for Image Recognition (2015)](/rltoken/wuLTyqZfGDJGXQr7ZD2s7A "Deep Residual Learning for Image Recognition (2015)"):
 
@@ -398,6 +406,8 @@ Write a function `def projection_block(A_prev, filters, s=2):` that builds a pro
 ---
 
 ### [4. ResNet-50](./4-resnet50.py)
+
+![](./0x08-images/img_5.png)
 
 Write a function `def resnet50():` that builds the ResNet-50 architecture as described in [Deep Residual Learning for Image Recognition (2015)](/rltoken/wuLTyqZfGDJGXQr7ZD2s7A "Deep Residual Learning for Image Recognition (2015)"):
 
@@ -791,6 +801,8 @@ Write a function `def resnet50():` that builds the ResNet-50 architecture as des
 
 ### [5. Dense Block](./5-dense_block.py)
 
+![](./0x08-images/img_6.png)
+
 Write a function `def dense_block(X, nb_filters, growth_rate, layers):` that builds a dense block as described in [Densely Connected Convolutional Networks](/rltoken/Qs0mYOJOO77ZiZBEdREYzQ "Densely Connected Convolutional Networks"):
 
 *   `X` is the output from the previous layer
@@ -959,6 +971,8 @@ Write a function `def densenet121(growth_rate=32, compression=1.0):` that builds
     *   `dense_block = __import__('5-dense_block').dense_block`
     *   `transition_layer = __import__('6-transition_layer').transition_layer`
 *   Returns: the keras model
+
+![](./0x08-images/img_7.png)
 
 ```
     ubuntu@alexa-ml:~/supervised_learning/0x08-deep_cnns$ ./7-main.py 
