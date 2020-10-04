@@ -6,18 +6,14 @@
 
 ## Some Images Generated via Neural Style Transfer in this Project :)
 
-<p align='center'>
-  <img src='./0x0C-images/img_10.png'>
-  <img src='./0x0C-images/img_11.png'>
-  <img src='./0x0C-images/img_12.png'>
-</p>
-
+Photograph: top left; Painting: top right; Styled-Image: bottom
 <p align='center'>
   <img src='./0x0C-images/img_13.png'>
   <img src='./0x0C-images/img_14.png'>
   <img src='./0x0C-images/img_15.png'>
 </p>
 
+Photograph: top left; Painting: top right; Styled-Image: bottom
 <p align='center'>
   <img src='./0x0C-images/img_16.png'>
   <img src='./0x0C-images/img_17.png'>
