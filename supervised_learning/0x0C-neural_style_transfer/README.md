@@ -7,9 +7,9 @@
 ## Some Images Generated via Neural Style Transfer in this Project :)
 
 <p align="center">
-  * Photograph: Bogota, Colombia (top left)
-  * Painting: Watertown, by Karen Gillis Taylor (inspiration: Paul Klee)
-  * Styled-Image (bottom)
+  | Photograph: Bogota, Colombia (top left)
+  | Painting: Watertown, by Karen Gillis Taylor (inspiration: Paul Klee)
+  | Styled-Image (bottom) |
 </p>
 <p align='center'>
   <img src='./0x0C-images/img_13.png'>
@@ -18,9 +18,9 @@
 </p>
 
 <p align="center">
-  * Photograph: Medellin, Colombia (top left)
-  * Painting: Water Lily, by Vincent van Gogh
-  * Styled-Image (bottom)
+  | Photograph: Medellin, Colombia (top left)
+  | Painting: Water Lily, by Vincent van Gogh
+  | Styled-Image (bottom) |
 </p>
 <p align='center'>
   <img src='./0x0C-images/img_16.png'>
