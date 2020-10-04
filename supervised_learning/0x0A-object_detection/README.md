@@ -1,5 +1,9 @@
 # 0x0A. Object Detection
 
+<p align='center'>
+  <img src='./0x0A-images/img_1.png'>
+</p>
+
 ## Some Object Detection Images Generated in this Project :)
 
 <p align='center'>
@@ -329,6 +333,7 @@ Write a class `Yolo` (Based on `3-yolo.py`):
     root@alexa-ml2:~/0x0A-object_detection# ./4-main.py
     WARNING:tensorflow:No training configuration found in save file: the model was *not* compiled. Compile it manually.
 ```
+![](./0x0A-images/img_2.png)
 
 ---
 
@@ -356,6 +361,7 @@ Write a class `Yolo` (Based on `4-yolo.py`):
     <class 'numpy.ndarray'> (6, 2)
     (576, 768, 3) : [576 768]
 ```
+![](./0x0A-images/img_3.png)
 
 ---
 
@@ -390,6 +396,7 @@ Write a class `Yolo` (Based on `5-yolo.py`):
     root@alexa-ml2:~/0x0A-object_detection# ./6-main.py
     WARNING:tensorflow:No training configuration found in save file: the model was *not* compiled. Compile it manually.
 ```
+![](./0x0A-images/img_4.png)
 _press the `s` button_
 
 ```
@@ -416,16 +423,17 @@ Write a class `Yolo` (Based on `6-yolo.py`):
     root@alexa-ml2:~/0x0A-object_detection# ./7-main.py
     WARNING:tensorflow:No training configuration found in save file: the model was *not* compiled. Compile it manually.
 ```
+![](./0x0A-images/img_5.png)
 _press `s`_
-
+![](./0x0A-images/img_6.png)
 _press `s`_
-
+![](./0x0A-images/img_7.png)
 _press `s`_
-
+![](./0x0A-images/img_8.png)
 _press `s`_
-
+![](./0x0A-images/img_9.png)
 _press `s`_
-
+![](./0x0A-images/img_10.png)
 _press `s`_
 ```
     ../data/yolo/dog.jpg
