@@ -57,6 +57,7 @@ Write a function `def conv_forward(A_prev, W, b, activation, padding="same", str
     (50000, 26, 26, 2)
 ```
 ![](./0x07-images/img_2.png)
+
 ![](./0x07-images/img_3.png)
 
 ---
@@ -85,11 +86,13 @@ Write a function `def pool_forward(A_prev, kernel_shape, stride=(1, 1), mode='ma
     (50000, 28, 28, 2)
 ```
 ![](./0x07-images/img_4.png)
+
 ![](./0x07-images/img_5.png)
 ```
     (50000, 14, 14, 2)
 ```
 ![](./0x07-images/img_6.png)
+
 ![](./0x07-images/img_7.png)
 
 ---
