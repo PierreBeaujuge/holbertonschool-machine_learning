@@ -1,7 +1,7 @@
 # 0x0A. Object Detection
 
 <p align='center'>
-  <img src='./0x0A-images/img_1.png'>
+  <img src='./0x0A-images/img_1.gif'>
 </p>
 
 ## Some Object Detection Images Generated in this Project :)
