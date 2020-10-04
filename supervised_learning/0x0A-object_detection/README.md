@@ -1,5 +1,12 @@
 # 0x0A. Object Detection
 
+## Object Detection Images Collected in this Project
+
+![](./0x0A-images/img_11.png)
+![](./0x0A-images/img_12.png)
+![](./0x0A-images/img_13.png)
+![](./0x0A-images/img_14.png)
+
 ## Learning Objectives
 
 - What is OpenCV and how do you use it?
