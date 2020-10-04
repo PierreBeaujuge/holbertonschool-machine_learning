@@ -71,6 +71,7 @@ plt.show()
 ```
 alexa@ubuntu-xenial:0x00-binary_classification$ ./show_data.py
 ```
+![](./0x00-images/img_1.png)
 
 ## Tasks
 
@@ -262,6 +263,7 @@ Write a class `Neuron` that defines a single neuron performing binary classifica
     Dev cost: 1.4096194345468178
     Dev accuracy: 64.49172576832152%
 ```
+![](./0x00-images/img_2.png)
 _Not that great… Let’s get more data!_
 
 ---
@@ -308,13 +310,14 @@ Write a class `Neuron` that defines a single neuron performing binary classifica
     
     Cost after 3000 iterations: 0.013386353289868338
 ```
-
+![](./0x00-images/img_3.png)
 ```
     Train cost: 0.013386353289868338
     Train accuracy: 99.66837741808132%
     Dev cost: 0.010803484515167197
     Dev accuracy: 99.81087470449172%
 ```
+![](./0x00-images/img_4.png)
 
 ---
 
@@ -537,6 +540,8 @@ Write a class `NeuralNetwork` that defines a neural network with one hidden laye
     Dev accuracy: 86.52482269503547%
     alexa@ubuntu-xenial:0x00-binary_classification$
 ```
+![](./0x00-images/img_5.png)
+_Pretty good… but there are still some incorrect labels. We need more data to see why…_
 
 ---
 
@@ -582,13 +587,14 @@ Write a class `NeuralNetwork` that defines a neural network with one hidden laye
     
     Cost after 5000 iterations: 0.024369225667283875
 ```
-
+![](./0x00-images/img_6.png)
 ```
     Train cost: 0.024369225667283875
     Train accuracy: 99.3999210422424%
     Dev cost: 0.020330639788072768
     Dev accuracy: 99.57446808510639%
 ```
+![](./0x00-images/img_7.png)
 
 ---
 
@@ -849,7 +855,7 @@ Write a class `DeepNeuralNetwork` that defines a deep neural network performing 
     Dev cost: 0.6428913158565179
     Dev accuracy: 57.730496453900706%
 ```
-
+![](./0x00-images/img_8.png)
 _Hmm… doesn’t seem like this worked very well. Could it be because of our architecture or that it wasn’t trained properly? We need to see more information…_
 
 ---
@@ -895,13 +901,14 @@ Write a class `DeepNeuralNetwork` that defines a deep neural network performing 
     
     Cost after 5000 iterations: 0.011671820326008168
 ```
-
+![](./0x00-images/img_9.png)
 ```
     Train cost: 0.011671820326008168
     Train accuracy: 99.88945913936044%
     Dev cost: 0.00924955213227925
     Dev accuracy: 99.95271867612293%
 ```
+![](./0x00-images/img_10.png)
 
 ---
 
