@@ -55,6 +55,7 @@ plt.show()
 alexa@ubuntu-xenial:0x01-multiclass_classification$ ./show_data.py
 ['Y_test', 'X_test', 'X_train', 'Y_train', 'X_valid', 'Y_valid']
 ```
+![](./0x01-images/img_1.png)
 
 ## Tasks
 
@@ -167,6 +168,8 @@ _The training process may take up to 5 minutes_
     Validation cost: 0.39517557351173044
     Validation accuracy: 89.64%
 ```
+![](./0x01-images/img_2.png)
+_As you can see, our training has become very slow and is beginning to plateau. Let’s alter the model a little and see if we get a better result_
 
 ---
 
@@ -197,7 +200,7 @@ _The training process may take up to 5 minutes_
     Test cost: 0.4074169894615401
     Test accuracy: 89.0%
 ```
-
+![](./0x01-images/img_3.png)
 ```
     Tanh activaiton:
     Cost after 0 iterations: 0.18061815622291985
@@ -218,7 +221,7 @@ _The training process may take up to 5 minutes_
     Test cost: 0.1809489808838737
     Test accuracy: 94.77%
  ```
-
+![](./0x01-images/img_4.png)
 _The training of this model is also getting slow and plateauing after about 2000 iterations. However, just by changing the activation function, we have nearly halved the model’s cost and increased its accuracy by about 6%_
 
 ---
