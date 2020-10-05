@@ -1,7 +1,7 @@
 # 0x04. Convolutions and Pooling
 
 <p align='center'>
-  <img src='./0x04-images/img_2.png'>
+  <img src='./0x04-images/img_1.gif'>
 </p>
 
 ## Learning Objectives
