@@ -480,7 +480,7 @@ Write a function `def expectation_maximization(X, k, iterations=1000, tol=1e-5, 
     Log Likelihood after 50 iterations: -94439.93891221989
     Log Likelihood after 52 iterations: -94439.93889004056
 ```
-![](./0x01-images/img_4.pn)
+![](./0x01-images/img_4.png)
 
 ```
     [ 761.03239903  747.62391034 1005.60275934 9985.74093129]
@@ -554,9 +554,9 @@ Write a function `def BIC(X, kmin=1, kmax=None, iterations=1000, tol=1e-5, verbo
      189192.49345356 189244.01718438 189306.23042322 189370.01378997
      189427.71328887 189483.77820741]
 ```
-![](./0x01-images/img_5.pn)
+![](./0x01-images/img_5.png)
 
-![](./0x01-images/img_6.pn)
+![](./0x01-images/img_6.png)
 
 ---
 
@@ -579,7 +579,7 @@ Write a function `def kmeans(X, k):` that performs K-means on a dataset:
      [59.22766628 29.19796006]
      [20.0835633  69.81592298]]
 ```
-![](./0x01-images/img_7.pn)
+![](./0x01-images/img_7.png)
 
 ---
 
@@ -617,7 +617,7 @@ Write a function `def gmm(X, k):` that calculates a GMM from a dataset:
       [ 1.12791052e+01  3.21044161e+01]]]
     189727.91411998263
 ```
-![](./0x01-images/img_8.pn)
+![](./0x01-images/img_8.png)
 
 ---
 
@@ -637,9 +637,9 @@ Write a function `def agglomerative(X, dist):` that performs agglomerative clust
 ```
     alexa@ubuntu-xenial:0x01-clustering$ ./12-main.py
 ```
-![](./0x01-images/img_9.pn)
+![](./0x01-images/img_9.png)
 
-![](./0x01-images/img_10.pn)
+![](./0x01-images/img_10.png)
 
 ---
 
