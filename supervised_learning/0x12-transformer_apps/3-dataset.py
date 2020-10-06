@@ -9,7 +9,7 @@ import tensorflow_datasets as tfds
 class Dataset:
     """class that loads and preps a dataset for machine translation"""
 
-    def __init__(self):
+    def __init__(self, batch_size, max_len):
         """constructor"""
 
         # Portugese-English translation dataset
