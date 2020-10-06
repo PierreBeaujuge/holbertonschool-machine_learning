@@ -37,6 +37,6 @@ def create_masks(inputs, target):
     look_ahead_mask = 1 - tf.linalg.band_part(
         tf.ones((target.shape[0], 1, target.shape[1], target.shape[1])), -1, 0)
     # (seq_len_in, 1, seq_len_out, seq_len_out)
-    # look_ahead_mask = tf.maximum(decoder_mask, look_ahead_mask)
+    look_ahead_mask = tf.maximum(decoder_mask, look_ahead_mask)
 
     return encoder_mask, look_ahead_mask, decoder_mask
