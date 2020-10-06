@@ -14,6 +14,7 @@ def create_masks(inputs, target):
 
     # Replace 0 pad tokens by 1s
     inputs = tf.cast(tf.math.equal(inputs, 0), tf.float32)
+    target = tf.cast(tf.math.equal(target, 0), tf.float32)
 
     # add extra dimensions to add the padding to the attention logits.
 
@@ -28,6 +29,10 @@ def create_masks(inputs, target):
     decoder_mask = inputs[:, tf.newaxis, tf.newaxis, :]
     # (batch_size, 1, 1, seq_len_in)
 
+    # Decoder target padding mask
+    decoder_target_mask = target[:, tf.newaxis, tf.newaxis, :]
+    # (batch_size, 1, 1, seq_len_out)
+
     # Look-ahead mask:
     # used to mask the future tokens in a sequence. In other words,
     # the mask indicates which entries should not be used.
@@ -37,6 +42,6 @@ def create_masks(inputs, target):
     look_ahead_mask = 1 - tf.linalg.band_part(
         tf.ones((target.shape[0], 1, target.shape[1], target.shape[1])), -1, 0)
     # (seq_len_in, 1, seq_len_out, seq_len_out)
-    combined_mask = tf.maximum(decoder_mask, look_ahead_mask)
+    combined_mask = tf.maximum(decoder_target_mask, look_ahead_mask)
 
     return encoder_mask, combined_mask, decoder_mask
